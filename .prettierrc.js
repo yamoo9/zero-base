@@ -6,8 +6,8 @@ module.exports = {
   //       id="unique-id"
   //       class="contaienr"
   //     >
-  htmlWhitespaceSensitivity: 'css',
   bracketSameLine: false,
+  htmlWhitespaceSensitivity: 'css',
   // 객체 표기 괄호 사이 공백 추가 여부 (ex: { foo: bar })
   bracketSpacing: true,
   // 행폭 설정 (줄 길이가 설정 값보다 길어지면 자동 개행)

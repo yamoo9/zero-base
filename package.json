@@ -4,17 +4,17 @@
   "version": "1.0.0",
   "description": "프론트엔드 개발에 대해 학습합니다.",
   "config": {
-    "dir": "./public/scripts ./server"
+    "dir": "./public/scripts ./server",
+    "port": 3000
   },
   "scripts": {
-    "start": "npm run dev -- --open",
+    "start": "node server/app.js --open",
     "dev": "run-p watch:** serve",
-    "serve": "nodemon server/app.js --port=8080",
+    "serve": "nodemon server/app.js --port=$npm_package_config_port",
     "lint": "cross-var eslint $npm_package_config_dir --ignore-path .gitignore",
     "watch:lint": "cross-var esw --watch $npm_package_config_dir --ignore-path .gitignore",
     "format": "cross-var prettier --write $npm_package_config_dir --ignore-path .gitignore",
-    "watch:format": "cross-var onchange $npm_package_config_dir -- npm run format {{changed}}",
-    "preview": "node server/app.js --open"
+    "watch:format": "cross-var onchange $npm_package_config_dir -- npm run format {{changed}}"
   },
   "keywords": [
     "ecmascript",

@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  font: 1.6rem/1.5 "Pretendard", "Spoqa Han Sans Neo", Aria, Verdana, sans-serif;
+  font: 1.6rem/1.5 "Pretendard", "Spoqa Han Sans Neo", Arial, Verdana, sans-serif;
   background: var(--white);
   color: var(--black);
 }
