@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "zero-base-manual-dev-config",
+  "version": "1.0.0",
+  "description": "프론트엔드 개발에 대해 학습합니다.",
+  "scripts": {
+    "start": "live-server public --host=localhost --port=3000 --no-browser"
+  },
+  "author": "yamoo9 <yamoo9@euid.dev>"
+}
