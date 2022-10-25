@@ -1,0 +1,18 @@
+:root {
+  font-size: 62.5%;
+
+  --white: #fff;
+  --black: #000;
+}
+
+body {
+  margin: 0;
+  font: 1.6rem/1.5 "Pretendard", "Spoqa Han Sans Neo", Aria, Verdana, sans-serif;
+  background: var(--white);
+  color: var(--black);
+}
+
+.dark body {
+  background: var(--black);
+  color: var(--white);
+}
