@@ -5,16 +5,16 @@
   "description": "프론트엔드 개발에 대해 학습합니다.",
   "config": {
     "dir": "./public/scripts ./server",
-    "path": "./public/scripts/**/*.js ./server/**/*.js"
+    "path": "./public/**/*.js ./server/**/*.js"
   },
   "scripts": {
     "start": "npm run dev -- --open",
-    "dev": "nodemon server/app.js --port=4200",
-    "lint": "eslint $npm_package_config_path --ignore-path .gitignore",
-    "watch:lint": "",
-    "format": "",
-    "watch:format": "",
-    "preview": "node server/app.js"
+    "dev": "nodemon server/app.js --port=8080",
+    "lint": "cross-var eslint $npm_package_config_dir --ignore-path .gitignore",
+    "watch:lint": "cross-var esw --watch $npm_package_config_dir --ignore-path .gitignore",
+    "format": "cross-var prettier --write $npm_package_config_dir --ignore-path .gitignore",
+    "watch:format": "cross-var onchange $npm_package_config_dir -- npm run format {{changed}}",
+    "preview": "node server/app.js --open"
   },
   "keywords": [
     "ecmascript",
@@ -24,8 +24,12 @@
   ],
   "author": "yamoo9 <yamoo9@euid.dev>",
   "devDependencies": {
+    "cross-var": "1.1.0",
     "eslint": "8.26.0",
+    "eslint-watch": "8.0.0",
     "live-server": "1.2.2",
-    "nodemon": "2.0.20"
+    "nodemon": "2.0.20",
+    "onchange": "7.1.0",
+    "prettier": "2.7.1"
   }
 }

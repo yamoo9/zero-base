@@ -1,5 +1,3 @@
-const { resolve } = require('node:path');
-
 const liveServer = require('live-server');
 const getArgv = require('./helpers/getArgv');
 
