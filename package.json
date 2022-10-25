@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "description": "프론트엔드 개발에 대해 학습합니다.",
   "scripts": {
-    "start": "node server/app.js",
-    "dev:backend": "nodemon server/app.js",
-    "dev:frontend": "live-server public --host=localhost --port=3000 --no-browser"
+    "start": "npm run dev -- --open",
+    "dev": "nodemon server/app.js --port=4200",
+    "preview": "node server/app.js"
   },
   "keywords": [
     "ecmascript",
