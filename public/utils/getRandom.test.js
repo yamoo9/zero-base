@@ -1,4 +1,4 @@
-const { getRandom, getRandomMinMax } = require('./getRandom');
+import { getRandom, getRandomMinMax } from './getRandom.js';
 
 test('getRandom(10)의 반환 값은 0보다 크거나 같고, 10보다 작거나 같다.', () => {
   let min = 0;

@@ -1,4 +1,3 @@
-const getRandom = (n) => Math.round(Math.random() * n);
-const getRandomMinMax = (min = 0, max = 100) => getRandom(max - min) + min;
-
-module.exports = { getRandom, getRandomMinMax };
+export const getRandom = (n) => Math.round(Math.random() * n);
+export const getRandomMinMax = (min = 0, max = 100) =>
+  getRandom(max - min) + min;
