@@ -5,7 +5,15 @@
   "description": "프론트엔드 개발에 대해 학습합니다.",
   "config": {
     "dir": "./public/scripts ./server",
-    "port": 3000
+    "port": 3000,
+    "file": {
+      "input": "./public/scripts/app.js",
+      "output": "./public/compiled/app.js"
+    },
+    "folder": {
+      "input": "./public/scripts",
+      "output": "./public/compiled"
+    }
   },
   "scripts": {
     "start": "node server/app.js --open",
@@ -14,16 +22,23 @@
     "lint": "cross-var eslint $npm_package_config_dir --ignore-path .gitignore",
     "watch:lint": "cross-var esw --watch $npm_package_config_dir --ignore-path .gitignore",
     "format": "cross-var prettier --write $npm_package_config_dir --ignore-path .gitignore",
-    "watch:format": "cross-var onchange $npm_package_config_dir -- npm run format {{changed}}"
+    "watch:format": "cross-var onchange $npm_package_config_dir -- npm run format {{changed}}",
+    "compile": "cross-var babel $npm_package_config_file_input -o $npm_package_config_file_output",
+    "compile:dir": "cross-var babel $npm_package_config_folder_input -d $npm_package_config_folder_output",
+    "watch:compile": "npm run compile -- --watch"
   },
   "keywords": [
     "ecmascript",
     "eslint",
     "prettier",
+    "babel",
     "jest"
   ],
   "author": "yamoo9 <yamoo9@euid.dev>",
   "devDependencies": {
+    "@babel/cli": "7.19.3",
+    "@babel/core": "7.19.6",
+    "@babel/preset-env": "7.19.4",
     "cross-var": "1.1.0",
     "eslint": "8.26.0",
     "eslint-config-prettier": "8.5.0",
@@ -35,5 +50,8 @@
     "npm-run-all": "4.1.5",
     "onchange": "7.1.0",
     "prettier": "2.7.1"
+  },
+  "dependencies": {
+    "core-js": "3.26.0"
   }
 }
