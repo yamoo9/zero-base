@@ -7,11 +7,24 @@
 
 // fibonacci 유틸리티 -------------------------------------------------------------
 
-var fibonacci = function() {};
+// index: 0, 1, 2, 3, 4, 5, 6, 7,  ...
+// value: 0, 1, 1, 2, 3, 5, 8, 12, ...
+const fibonacci = (n) =>
+  n < 1 ? 0 : n < 3 ? 1 : fibonacci(n - 2) + fibonacci(n - 1);
 
 // numberWithComma 유틸리티 -------------------------------------------------------
 
-var numberWithComma = function() {};
+function numberWithComma(n) {
+  // (\d)     →  숫자 [0-9] 일치
+  // +        → 1개 이상
+  // (\d{3})  →  필요한 개수 (참고: https://bit.ly/3wUM4vr)
+  // X(?=)Y   →  X 뒤에 Y가 위치 할 경우에만 일치 (참고: https://bit.ly/35RG7U0)
+  // X(?!Y)   →  X 뒤에 Y가 위치 하지 않을 경우에만 일치
+  return n.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+}
+
+// const numberWithComma = (number) =>
+//   number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 
 // ------------------------------------------------------------------------------
 // TEST
@@ -19,14 +32,14 @@ var numberWithComma = function() {};
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-// test('fibonacci 유틸리티', () => {
-//   expect(fibonacci(6)).toBe(8);
-//   expect(fibonacci(12)).toBe(144);
-//   expect(fibonacci(18)).toBe(2584);
-// });
+test('fibonacci 유틸리티', () => {
+  expect(fibonacci(6)).toBe(8);
+  expect(fibonacci(12)).toBe(144);
+  expect(fibonacci(18)).toBe(2584);
+});
 
-// test('numberWithComma 유틸리티', () => {
-//   expect(numberWithComma(900)).toBe('900');
-//   expect(numberWithComma(9900)).toBe('9,900');
-//   expect(numberWithComma(1398700)).toBe('1,398,700');
-// });
+test('numberWithComma 유틸리티', () => {
+  expect(numberWithComma(900)).toBe('900');
+  expect(numberWithComma(9900)).toBe('9,900');
+  expect(numberWithComma(1398700)).toBe('1,398,700');
+});
