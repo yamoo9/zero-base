@@ -8,5 +8,5 @@
 - [x] ESLint — Linting
 - [x] Prettier — Formatting
 - [x] Watch Changed Files
-- [ ] Babel — JavaScript Compiler
-- [ ] Jest — Test Runner
+- [x] Babel — JavaScript Compiler
+- [x] Jest — Test Runner
