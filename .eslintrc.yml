@@ -5,6 +5,7 @@ env:
   jest/globals: true
 extends:
   - eslint:recommended
+  - plugin:jest/recommended
   - prettier
 parserOptions:
   ecmaVersion: latest
