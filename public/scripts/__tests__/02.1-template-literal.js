@@ -5,7 +5,21 @@
 // - [ ] 템플릿 리터럴 구문을 사용해 데이터 바인딩 되도록 코드를 수정합니다.
 // -----------------------------------------------------------------------------
 
-function renderCard(card) {
+const renderCard = ({ image, title, description, link }/* props */) => {
+  return /* html */ `
+  <div class="card">
+    <img src="${image.src}" class="card-img-top" alt="${image.alt}" />
+    <div class="card-body">
+      <h5 class="card-title">${title}</h5>
+      <p class="card-text">${description}</p>
+      <a href="${link.href}" class="btn btn-primary">${link.text}</a>      
+    </div>    
+  </div>
+  `;
+};
+
+// eslint-disable-next-line no-unused-vars
+function renderCardLegacy(card) {
   return (
     '<div class="card">\
       <img src="' + card.image.src + '" class="card-img-top" alt="' + card.image.alt + '" />\
@@ -20,43 +34,44 @@ function renderCard(card) {
 }
 
 function joinLine(string) {
-  return string.replace(/\s*\n\s*/g, '');
+  return string.replace(/(\s*\n\s*|\s*$|>+\s*<)/g, $1 => ($1.match(/>+\s*</g)) ? '><' : '');
 }
 
-
 // ------------------------------------------------------------------------------
-// TEST                                                                      
+// TEST
 // ------------------------------------------------------------------------------
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-// test('renderCard 렌더 유틸리티', () => {
-//   const data = {
-//     title: 'React 펀드멘탈',
-//     description:
-//       'React 애플리케이션 및 라이브러리를 빌드하는 데 필요한 기본 개념을 배웁니다.',
-//     image: {
-//       src: 'react-fundamentals.webp',
-//       alt: 'React Fundamentals',
-//     },
-//     link: {
-//       href: '/react-fundamentals',
-//       text: 'React fundamentals',
-//     },
-//   };
+test('renderCard 렌더 유틸리티', () => {
+  const data = {
+    title: 'React 펀드멘탈',
+    description:
+      'React 애플리케이션 및 라이브러리를 빌드하는 데 필요한 기본 개념을 배웁니다.',
+    image: {
+      src: 'react-fundamentals.webp',
+      alt: 'React Fundamentals',
+    },
+    link: {
+      href: '/react-fundamentals',
+      text: 'React fundamentals',
+    },
+  };
 
-//   const received = renderCard(data);
+  const receivedTemplate = renderCard(data);
+  const receivedLegacy = renderCardLegacy(data);
 
-//   const expected = /* html */`
-//     <div class="card">
-//       <img src="react-fundamentals.webp" class="card-img-top" alt="React Fundamentals" />
-//       <div class="card-body">
-//         <h5 class="card-title">React 펀드멘탈</h5>
-//         <p class="card-text">React 애플리케이션 및 라이브러리를 빌드하는 데 필요한 기본 개념을 배웁니다.</p>
-//         <a href="/react-fundamentals" class="btn btn-primary">React fundamentals</a>      
-//       </div>    
-//     </div>
-//   `;
+  const expected = /* html */ `
+    <div class="card">
+      <img src="react-fundamentals.webp" class="card-img-top" alt="React Fundamentals" />
+      <div class="card-body">
+        <h5 class="card-title">React 펀드멘탈</h5>
+        <p class="card-text">React 애플리케이션 및 라이브러리를 빌드하는 데 필요한 기본 개념을 배웁니다.</p>
+        <a href="/react-fundamentals" class="btn btn-primary">React fundamentals</a>      
+      </div>    
+    </div>
+  `;
 
-//   expect(joinLine(received)).toHaveLength(joinLine(expected).length);
-// });
+  expect(joinLine(receivedLegacy)).toHaveLength(joinLine(expected).length);
+  expect(joinLine(receivedTemplate)).toHaveLength(joinLine(expected).length);
+});
