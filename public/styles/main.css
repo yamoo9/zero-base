@@ -1,0 +1,42 @@
+:root {
+  font-size: 62.5%;
+
+  --white: #fff;
+  --black: #000;
+
+  --min-viewport: 320px;
+  --max-viewport: 1280px;
+  --space: 4px;
+}
+
+body {
+  margin: 0;
+  font: 1.6rem/1.5 "Pretendard", "Spoqa Han Sans Neo", Arial, Verdana, sans-serif;
+  background: var(--white);
+  color: var(--black);
+}
+
+body,
+body::before,
+body::after,
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}
+
+.dark body {
+  background: var(--black);
+  color: var(--white);
+}
+
+.container {
+  width: clamp(var(--min-viewport), 90vw, var(--max-viewport));
+  margin: 0 auto;
+  padding: calc(var(--space) * 5);
+}
