@@ -6,6 +6,11 @@ const defaultParams = {
   port: 3000,
   root: './public',
   open: false,
+  watch: './public',
+  mount: [
+    ['/api', './server/api'],
+    ['/assets', './server/assets'],
+  ],
 };
 
 const userParams = getArgv();
