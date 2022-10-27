@@ -26,7 +26,7 @@
     "compile": "cross-var babel $npm_package_config_file_input -o $npm_package_config_file_output",
     "compile:dir": "cross-var babel $npm_package_config_folder_input -d $npm_package_config_folder_output",
     "watch:compile": "npm run compile -- --watch",
-    "test": "jest --watch"
+    "test": "BABEL_MODULES=cjs jest --watch"
   },
   "keywords": [
     "ecmascript",
