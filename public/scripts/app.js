@@ -1,7 +1,7 @@
-import * as Utils from '../utils/index.js';
+import { fetchBooks } from '../utils/index.js';
 
-let price = 984_000;
-
-console.log(Utils.numberWithComma(price));
-console.log(Utils.currency(price));
-console.log(Utils.currencyKR(price));
+fetchBooks()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => console.error(error.message));
