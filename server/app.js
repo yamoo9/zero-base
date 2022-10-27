@@ -14,6 +14,7 @@ const defaultParams = {
 
 const userParams = getArgv();
 
+// const params = { ...defaultParams, ...userParams };
 const params = Object.assign({}, defaultParams, userParams);
 
 liveServer.start(params);

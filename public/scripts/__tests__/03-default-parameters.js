@@ -5,15 +5,15 @@
 // - [ ] truncateText 함수 로직을 작성합니다.
 // -----------------------------------------------------------------------------
 
-const defaultArg = (value, initialValue) => {
-  if (value === null || value === undefined) {
-    value = initialValue;
-  }
-  return value;
-};
+// const defaultArg = (value, initialValue) => {
+//   if (value === null || value === undefined) {
+//     value = initialValue;
+//   }
+//   return value;
+// };
 
-const truncateText = (text, limit = defaultArg(limit, 100)) =>
-  `${text.slice(0, limit)}...`;
+// const truncateText = (text, limit = defaultArg(limit, 100)) =>
+const truncateText = (text, limit = 100) => `${text.slice(0, limit)}...`;
 
 // ------------------------------------------------------------------------------
 // TEST

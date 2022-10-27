@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-focused-tests */
 // -----------------------------------------------------------------------------
 // TODO
 // -----------------------------------------------------------------------------
@@ -7,13 +8,16 @@
 
 // 배열 전개 ---------------------------------------------------------------------
 
-var integers = [-1, 0, 32, -101, 24];
-var maxInt = Math.max.apply(Math, [302, 1, 2, 30, -101].concat(integers));
+const integers = [-1, 0, 32, -101, 24];
+
+// JavaScript `메서드 빌려쓰기` 디자인 패턴
+// let maxInt = Math.max.apply(Math, [302, 1, 2, 30, -101].concat(integers));
+let maxInt = Math.max(...[302, 1, 2, ...integers, 30, -101]);
 
 // 객체 전개 ---------------------------------------------------------------------
 
 // 객체 합성 유틸리티 함수
-var extend = function () {
+const extend = function () {
   var _mixinObject = arguments[0];
   var _restObjects = [].slice.call(arguments, 1);
 
@@ -41,53 +45,56 @@ var extend = function () {
 };
 
 // 상태 객체
-// 불변(immutable) 데이터 관리
-var state = {
+// 변경가능(mutable)
+const state = {
   loading: false,
   error: null,
   data: [{ id: 101, title: '초기 데이터' }],
 };
 
+// 불변(immutable) 데이터 관리
+Object.freeze(state);
+
 // 상태 업데이트 유틸리티 함수
-var setState = function(type) {
+const setState = (type) => {
   let newState = type;
   if (typeof newState === 'function') {
     newState = type(state);
   }
-  return extend({}, state, newState);
+  return { ...state, ...newState };
+  // return extend({}, state, newState);
 };
 
-
 // ------------------------------------------------------------------------------
-// TEST                                                                      
+// TEST
 // ------------------------------------------------------------------------------
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-// test('maxInt 값은 302', () => {
-//   expect(maxInt).toBe(302);
-// });
+test('maxInt 값은 302', () => {
+  expect(maxInt).toBe(302);
+});
 
-// test('newState의 loading 상태 값은 true', () => {
-//   const newState = setState({
-//     loading: true,
-//   });
+test('newState의 loading 상태 값은 true', () => {
+  const newState = setState({
+    loading: true,
+  });
 
-//   expect(newState.loading).toBeTruthy();
-// });
+  expect(newState.loading).toBeTruthy();
+});
 
-// test('newState() 함수 깊은 복사(deep copy) 테스트', () => {
-//   const newState = setState((state) => ({
-//     data: [...state.data, { id: 201, title: '추가 데이터' }],
-//   }));
+test('newState() 함수 깊은 복사(deep copy) 테스트', () => {
+  const newState = setState(({ data }) => ({
+    data: [...data, { id: 201, title: '추가 데이터' }],
+  }));
 
-//   expect(newState).toStrictEqual({
-//     ...state,
-//     data: [
-//       { id: 101, title: '초기 데이터' },
-//       { id: 201, title: '추가 데이터' },
-//     ],
-//   });
+  expect(newState).toStrictEqual({
+    ...state,
+    data: [
+      { id: 101, title: '초기 데이터' },
+      { id: 201, title: '추가 데이터' },
+    ],
+  });
 
-//   expect(newState.data).toHaveLength(2);
-// });
+  expect(newState.data).toHaveLength(2);
+});
