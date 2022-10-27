@@ -10,4 +10,5 @@ module.exports = {
       },
     ],
   ],
+  plugins: ['@babel/plugin-syntax-include-assertions'],
 };
