@@ -8,22 +8,23 @@
 // - [ ] utils 모듈 중, currencyKR 함수를 currency (별칭) 이름으로 추출합니다.
 // -----------------------------------------------------------------------------
 
-
+import * as utils from '../../utils/index.js';
+import { numberWithComma, currencyKR as currency } from '../../utils/index.js';
 
 // ------------------------------------------------------------------------------
-// TEST                                                                      
+// TEST
 // ------------------------------------------------------------------------------
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-// test(`utils.currency(3900) === '$3,900'`, () => {
-//   expect(utils.currency(3900)).toBe('$3,900');
-// });
+test(`utils.currency(3900) === '$3,900'`, () => {
+  expect(utils.currency(3900)).toBe('$3,900');
+});
 
-// test(`numberWithComma(3900) === '3,900'`, () => {
-//   expect(numberWithComma(3900)).toBe('3,900');
-// });
+test(`numberWithComma(3900) === '3,900'`, () => {
+  expect(numberWithComma(3900)).toBe('3,900');
+});
 
-// test(`currency(3900) === '3,900원'`, () => {
-//   expect(currency(3900)).toBe('3,900원');
-// });
+test(`currency(3900) === '3,900원'`, () => {
+  expect(currency(3900)).toBe('3,900원');
+});

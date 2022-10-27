@@ -1,10 +1,7 @@
-// IIFE 즉시 실행 함수 식 (모듈 패턴)
-(({ navigator }) => {
-  // 브라우저 (사용자 에이전트) 정보
-  const { userAgent } = navigator;
+import * as Utils from '../utils/index.js';
 
-  // iOS 운영체제 여부 확인 유틸리티 함수
-  const isIOS = () => userAgent.toLowerCase().includes('ios');
+let price = 984_000;
 
-  console.log(isIOS());
-})(window);
+console.log(Utils.numberWithComma(price));
+console.log(Utils.currency(price));
+console.log(Utils.currencyKR(price));
