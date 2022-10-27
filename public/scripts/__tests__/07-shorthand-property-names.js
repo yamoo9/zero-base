@@ -24,40 +24,45 @@ const watch = () => {
 
 // 아래 ES5 코드를 ES6 코드로 변경합니다. ----------------------------------------------
 
-var euid = {
+const euid = {
   name: '이듬',
-  show: show,
-  look: look,
-  watch: watch,
+  show,
+  look,
+  watch,
 };
 
-
 // ------------------------------------------------------------------------------
-// TEST                                                                      
+// TEST
 // ------------------------------------------------------------------------------
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
 const setDynamicProperty = (object, propName, value) => {
+  if (typeof value === 'function') {
+    object[propName] = value;
+    return [propName, value];
+  }
+
   object[propName] = function () {
     return this.name + '처럼 ' + value + '하다.';
   };
+
   return [propName, value];
 };
 
-// test('계산된 속성을 사용해 객체의 메서드 이름을 think로 설정할 수 있다.', () => {
-//   let propertyName = 'think';
-//   const [propName] = setDynamicProperty(euid, propertyName, '생각하다');
-//   expect(propName).toEqual(propertyName);
-// });
+test('계산된 속성을 사용해 객체의 메서드 이름을 `think`로 설정할 수 있다.', () => {
+  let propertyName = 'think';
+  let valueKeyword = '생각';
+  setDynamicProperty(euid, propertyName, valueKeyword);
+  expect(euid[propertyName]()).toMatch(new RegExp(valueKeyword));
+});
 
-// test('계산된 속성을 사용해 객체의 메서드 이름을 behavior로 변경할 수 있다.', () => {
+// test('계산된 속성을 사용해 객체의 메서드 이름을 `behavior`로 변경할 수 있다.', () => {
 //   let methodName = 'behavior';
 //   let returnValue = '행동하다';
-//   const [,value] = setDynamicProperty(
-//     euid,
-//     methodName,
-//     () => returnValue
-//   );
-//   expect(value()).toEqual(euid[methodName]);
+//   const [, value] = setDynamicProperty(euid, methodName, function () {
+//     return `${this.name} ${returnValue}`;
+//   });
+
+//   expect(euid[methodName]).toBe(value());
 // });
