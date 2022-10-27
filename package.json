@@ -26,7 +26,7 @@
     "compile": "cross-var babel $npm_package_config_file_input -o $npm_package_config_file_output",
     "compile:dir": "cross-var babel $npm_package_config_folder_input -d $npm_package_config_folder_output",
     "watch:compile": "npm run compile -- --watch",
-    "test": "BABEL_MODULES=cjs jest --watch"
+    "test": "cross-env BABEL_MODULES=cjs jest --watch"
   },
   "keywords": [
     "ecmascript",
@@ -43,6 +43,7 @@
     "@testing-library/jest-dom": "5.16.5",
     "@types/jest": "29.2.0",
     "babel-jest": "29.2.2",
+    "cross-env": "7.0.3",
     "cross-var": "1.1.0",
     "eslint": "8.26.0",
     "eslint-config-prettier": "8.5.0",
