@@ -1,11 +1,6 @@
-"use strict";
-
-(function (_ref) {
-  var navigator = _ref.navigator;
-  var userAgent = navigator.userAgent;
-
-  var isIOS = function isIOS() {
-    return userAgent.toLowerCase().includes('ios');
-  };
-  console.log(isIOS());
-})(window);
+import { fetchBooks } from '../utils/index.js';
+fetchBooks().then(function (data) {
+  console.log(data);
+}).catch(function (error) {
+  return console.error(error.message);
+});
