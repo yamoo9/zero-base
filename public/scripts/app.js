@@ -1,2 +1,3 @@
-// import renderSupportIE from './renderSupportIE.js';
-// renderSupportIE();
+import renderSupportIE from './renderSupportIE.js';
+
+renderSupportIE();

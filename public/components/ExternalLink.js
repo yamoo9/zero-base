@@ -1,6 +1,5 @@
 export default class ExternalLink extends HTMLAnchorElement {
-  constructor() {
-    super();
+  connectedCallback() {
     let href = this.getAttribute('href');
 
     if (href.startsWith('http')) {
