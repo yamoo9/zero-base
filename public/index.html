@@ -23,6 +23,12 @@
         color: var(--color-accent);
         font-size: 2rem;
       }
+
+      /* 컴포넌트 내부에 캡슐화 된 요소의 스타일링을 외부에서 컨트롤 */
+      [is="maxim-phrase"]::part(emphasis) {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
     </style>
     
     <script type="module" src="components/index.js"></script>

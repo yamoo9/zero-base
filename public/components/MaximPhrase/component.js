@@ -14,7 +14,7 @@ export default class MaximPhrase extends HTMLParagraphElement {
       <style>
         @import "${new URL('style.css', import.meta.url)}";
       </style>
-      <em class="phrase"></em>
+      <em class="phrase" part="emphasis"></em>
     `;
 
     this.#phraseElement = this.shadowRoot.querySelector('.phrase');
