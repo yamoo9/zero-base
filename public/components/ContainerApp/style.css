@@ -1,0 +1,9 @@
+:host .container {
+  box-sizing: border-box;
+  width: clamp(320px, 90vw, 1240px);
+  margin: 0 auto;
+}
+
+:host .container--pad {
+  padding: 0 20px;
+}

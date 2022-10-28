@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" as="style" crossorigin />
     <link rel="icon" href="//vectorlogo.zone/logos/reactjs/reactjs-icon.svg" />
     <link rel="stylesheet" href="styles/main.css" />
-    
+
     <style>
       :root {
-        font-size: 62.5%; /* 10px */
+        font-size: 62.5%;
+        /* 10px */
         --spacing-base: 4px;
         --color-primary: #7a163c;
         --color-accent: #15205b;
@@ -30,7 +31,7 @@
         text-underline-offset: 2px;
       }
     </style>
-    
+
     <script type="module" src="components/index.js"></script>
     <script type="module" src="scripts/app.js"></script>
 
@@ -38,11 +39,14 @@
 
   <body>
 
-    <div class="container">
-      <header>
+    <container-app>
+      <footer slot="footer">
+        COPYRIGHT &copy; 2022
+      </footer>
+      <header slot="header">
         <h1>웹 컴포넌트 <abbr title="Application Programming Interface">API</abbr></h1>
       </header>
-      
+
       <main>
 
         <!-- <a href="https://euid.dev" target="_blank" rel="noopener noreferrer">이듬</a> -->
@@ -51,11 +55,10 @@
         <p class="phrase" lang="en">Phrase</p>
 
         <p is="maxim-phrase" data-phrase="테스트"></p>
-        
-      </main>
-    </div>
 
-  
+      </main>
+    </container-app>
+
   </body>
 
 </html>
