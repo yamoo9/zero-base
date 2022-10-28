@@ -1,12 +1,23 @@
 export default class MaximPhrase extends HTMLParagraphElement {
   #phrase;
+  // #phraseElemnt;
 
   connectedCallback() {
     this.innerHTML = `
       <em class="phrase"></em>
     `;
 
-    this.phraseElemnt = this.querySelector('.phrase');
+    this.phraseElement = this.querySelector('.phrase');
+  }
+
+  static get observedAttributes() {
+    return ['data-phrase'];
+  }
+
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === 'data-phrase') {
+      this.phrase = newValue;
+    }
   }
 
   get phrase() {
@@ -15,7 +26,7 @@ export default class MaximPhrase extends HTMLParagraphElement {
 
   set phrase(newPhrase) {
     this.#phrase = newPhrase;
-    this.phraseElemnt.textContent = this.phrase;
+    this.phraseElement.textContent = this.phrase;
   }
 }
 
