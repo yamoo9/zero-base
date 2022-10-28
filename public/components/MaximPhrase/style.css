@@ -1,15 +1,34 @@
 :host {
   font-size: 62.5%; /* 10px */
   --spacing-base: 2px;
-  --color-primary: #167a63;
-  --color-accent: #5b5115;
+
+  --color-green-50: hsl(166, 69%, 95%);
+  --color-green-100: hsl(166, 69%, 90%);
+  --color-green-200: hsl(166, 69%, 80%);
+  --color-green-300: hsl(166, 69%, 70%);
+  --color-green-400: hsl(166, 69%, 60%);
+  --color-green-500: hsl(166, 69%, 50%);
+  --color-green-600: hsl(166, 69%, 40%);
+  --color-green-700: hsl(166, 69%, 30%);
+  --color-green-800: hsl(166, 69%, 20%);
+  --color-green-900: hsl(166, 69%, 10%);
+
+  --color-forground: var(--color-green-700);
+  --color-background: var(--color-green-50);
+}
+
+:host-context(.dark) {
+  --color-background: var(--color-green-700);
+  --color-forground: var(--color-green-50);
 }
 
 :host .phrase {
   display: inline-block;
+  border: 3px solid currentColor;
   padding: calc(var(--spacing-base) * 5);
   font-weight: bold;
   font-size: 1.4rem;
   font-style: normal;
-  color: var(--color-primary);
+  color: var(--color-forground);
+  background: var(--color-background)
 }
