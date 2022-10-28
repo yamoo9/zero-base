@@ -6,15 +6,14 @@ export default class ButtonGroup extends HTMLElement {
     super();
 
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `<style>@import "${new URL(
-      'style.css',
-      import.meta.url
-    )}";</style><slot></slot>`;
+    this.shadowRoot.innerHTML = `
+      <style>@import "${new URL('style.css', import.meta.url)}";
+      </style><slot></slot>
+    `;
 
     this.#internals = this.attachInternals?.();
 
     if (this.#internals) {
-      // https://twitter.com/LeonieWatson/status/1545788775644667904
       this.#internals.role = 'region';
     }
 
