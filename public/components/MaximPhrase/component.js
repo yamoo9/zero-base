@@ -1,3 +1,5 @@
+import template from './template.js';
+
 export default class MaximPhrase extends HTMLParagraphElement {
   #phrase;
   #phraseElement;
@@ -9,14 +11,7 @@ export default class MaximPhrase extends HTMLParagraphElement {
     super();
 
     this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.innerHTML = `
-      <style>
-        @import "${new URL('style.css', import.meta.url)}";
-      </style>
-      <em class="phrase" part="emphasis"></em>
-    `;
-
+    this.shadowRoot.append(template.content.cloneNode(true));
     this.#phraseElement = this.shadowRoot.querySelector('.phrase');
   }
 
