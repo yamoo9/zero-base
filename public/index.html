@@ -56,6 +56,39 @@
 
         <p is="maxim-phrase" data-phrase="테스트"></p>
 
+        <button-group>
+          <button type="button">디자인</button>
+          <button type="button" aria-pressed="true">프리뷰</button>
+        </button-group>
+
+        <button-group id="temporal" oninput="out.textContent = this.value">
+          <button type="button" value="">없음</button>
+          <button type="button" value="d">날짜</button>
+          <button type="button" value="t">시간</button>
+          <button type="button" value="dt">날짜 &amp; 시간</button>
+        </button-group>
+
+        <output id="out">output</output>
+
+        <div>
+          <button-group
+            multiple
+            vertical
+            oninput="button_multiple_value.textContent = this.value">
+            <button type="button" value="b">
+              <span style="font-weight: bold">B</span>
+            </button>
+            <button type="button" value="i">
+              <span style="font-style: italic">I</span>
+            </button>
+            <button type="button" value="u">
+              <span style="text-decoration: underline">U</span>
+            </button>
+          </button-group>
+
+          <output id="button_multiple_value"></output>
+        </div>
+
       </main>
     </container-app>
 
