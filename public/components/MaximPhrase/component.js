@@ -12,12 +12,7 @@ export default class MaximPhrase extends HTMLParagraphElement {
 
     this.shadowRoot.innerHTML = `
       <style>
-        .phrase {
-          font-weight: bold;
-          font-size: 1.4rem;
-          font-style: normal;
-          color: #16697a;
-        }
+        @import "${new URL('style.css', import.meta.url)}";
       </style>
       <em class="phrase"></em>
     `;

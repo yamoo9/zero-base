@@ -1,0 +1,15 @@
+:host {
+  font-size: 62.5%; /* 10px */
+  --spacing-base: 2px;
+  --color-primary: #167a63;
+  --color-accent: #5b5115;
+}
+
+:host .phrase {
+  display: inline-block;
+  padding: calc(var(--spacing-base) * 5);
+  font-weight: bold;
+  font-size: 1.4rem;
+  font-style: normal;
+  color: var(--color-primary);
+}
