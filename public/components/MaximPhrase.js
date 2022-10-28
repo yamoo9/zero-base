@@ -1,13 +1,23 @@
 export default class MaximPhrase extends HTMLParagraphElement {
   #phrase;
-  // #phraseElemnt;
+  #phraseElement;
 
   connectedCallback() {
-    this.innerHTML = `
+    this.attachShadow({ mode: 'open' });
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        .phrase {
+          font-weight: bold;
+          font-size: 1.4rem;
+          font-style: normal;
+          color: #16697a;
+        }
+      </style>
       <em class="phrase"></em>
     `;
 
-    this.phraseElement = this.querySelector('.phrase');
+    this.#phraseElement = this.shadowRoot.querySelector('.phrase');
   }
 
   static get observedAttributes() {
@@ -26,7 +36,7 @@ export default class MaximPhrase extends HTMLParagraphElement {
 
   set phrase(newPhrase) {
     this.#phrase = newPhrase;
-    this.phraseElement.textContent = this.phrase;
+    this.#phraseElement.textContent = this.phrase;
   }
 }
 
