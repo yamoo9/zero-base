@@ -3,7 +3,7 @@
   "scripts": {
     "start": "live-server public --host=localhost --port=3000",
     "dev": "npm start -- --no-browser",
-    "compile": "babel public/src/chapter/*.js -d public/compiled",
+    "compile": "babel src -d public -s",
     "watch": "npm run compile -- --watch",
     "test": "jest --watchAll",
     "clear": "rimraf -rf public/compiled"
@@ -24,6 +24,7 @@
     "@babel/core": "7.17.9",
     "@babel/node": "7.17.10",
     "@babel/preset-env": "7.16.11",
+    "@babel/preset-react": "7.18.6",
     "@types/jest": "27.4.1",
     "cross-env": "7.0.3",
     "eslint": "8.13.0",

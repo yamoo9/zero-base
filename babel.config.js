@@ -5,7 +5,9 @@ module.exports = {
       '@babel/preset-env',
       {
         loose: true,
+        modules: false,
       },
     ],
+    '@babel/preset-react',
   ],
 };

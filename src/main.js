@@ -1,5 +1,4 @@
-import { Headline } from './scripts/components/Headline.js';
-import { ReactLogo } from './scripts/components/ReactLogo.js';
+import { App } from './components/App.js';
 
 const container = document.getElementById('react-root');
 const ReactDomRoot = ReactDOM.createRoot(container);
