@@ -1,6 +1,6 @@
 ###### Connect To Front-end
 
-# React 시작하기 (웹 사이트)
+# 웹 사이트에서 React 시작하기
 
 React는 UI 코드를 컴포넌트라 불리우는 조각(piece)으로 분리하여 구성할 수 있는 라이브러리입니다. React는 라우팅(routing)이나 데이터 관리(management state)를 처리하지 않습니다. React로 전체 웹 애플리케이션을 구축할 필요는 없습니다. HTML 문서에 React를 추가하는 것은 별도 설치가 필요하지 않으며 컴포넌트 작성을 즉시 시작할 수 있습니다.
 
