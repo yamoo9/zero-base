@@ -1,20 +1,10 @@
-// React 함수 컴포넌트
-// - React 요소(JSX) 반환
-// - 컴포넌트는 외부로부터 데이터(props, {}) 전달 받음
-
-// [미션] 컴포넌트를 작성해 컴포넌트 트리를 구현합니다.
-// React.StrictMode
-// - App
-//   - Headline
-//   - ReactLogo
-
-const Headline = () => (
+const Headline = (props) => (
   <h1 className="headline" lang="en">
-    Add <strong>React</strong> to a Website
+    Add <strong>{props.children}</strong> to a Website
   </h1>
 );
 
-const ReactLogo = () => (
+const ReactLogo = (props) => (
   <svg
     role="none"
     className="reactLogo"
@@ -24,6 +14,7 @@ const ReactLogo = () => (
     viewBox="0 0 410 369"
     fill="none"
   >
+    <title>{props.children}</title>
     <path
       d="M204.995 224.552C226.56 224.552 244.042 207.07 244.042 185.506C244.042 163.941 226.56 146.459 204.995 146.459C183.43 146.459 165.948 163.941 165.948 185.506C165.948 207.07 183.43 224.552 204.995 224.552Z"
       fill="currentColor"
@@ -37,8 +28,11 @@ const ReactLogo = () => (
 
 const App = () => (
   <div className="App">
-    <Headline />
-    <ReactLogo />
+    <Headline>React</Headline>
+    <Headline>Vue</Headline>
+    <Headline>Svelte</Headline>
+    <Headline>Solid</Headline>
+    <ReactLogo>React Logo</ReactLogo>
   </div>
 );
 
