@@ -83,3 +83,5 @@ ReactDOMRoot.render(
     React.createElement(App, { children: [headline, reactLogo] })
   )
 );
+
+// setTimeout(() => ReactDOMRoot.unmount(), 3000);
