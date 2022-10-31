@@ -32,3 +32,12 @@ output {
     opacity: 0;
   }
 }
+
+.reloadButton {
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-size: 2rem;
+}
