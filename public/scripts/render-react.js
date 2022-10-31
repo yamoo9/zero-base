@@ -60,11 +60,26 @@ const reactLogo = React.createElement('svg', {
 const App = (props) =>
   React.createElement('div', { className: 'App' }, ...props.children);
 
-ReactDOM.render(
+// v17 API
+// ReactDOM.render(
+//   React.createElement(
+//     React.StrictMode,
+//     null,
+//     React.createElement(App, { children: [headline, reactLogo] })
+//   ),
+//   document.getElementById('react-root')
+// );
+
+// v18 API
+// do not support IE
+// ReactDOM/client (.createRoot)
+
+const ReactDOMRoot = ReactDOM.createRoot(document.getElementById('react-root'));
+
+ReactDOMRoot.render(
   React.createElement(
     React.StrictMode,
     null,
     React.createElement(App, { children: [headline, reactLogo] })
-  ),
-  document.getElementById('react-root')
+  )
 );
