@@ -1,3 +1,6 @@
+client/compiled
+__DEMO__
+
 
 ### Node ###
 # Logs
@@ -186,6 +189,8 @@ Temporary Items
 # Ignore all local history of files
 .history
 .ionide
+
+# Support for Project snippet scope
 
 ### Windows ###
 # Windows thumbnail cache files

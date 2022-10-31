@@ -1,0 +1,124 @@
+:root {
+  /* TYPES */
+  --base-font-size: 10px;
+  --line-height: 1.5;
+  --font-familes: Pretendard, Arial, sans-serif;
+
+  /* COLORS */
+  --primary-50: hsl(252, 53%, 97%);
+  --primary-100: hsl(252, 53%, 90%);
+  --primary-200: hsl(252, 53%, 80%);
+  --primary-300: hsl(252, 53%, 70%);
+  --primary-400: hsl(252, 53%, 60%);
+  --primary-500: hsl(252, 53%, 50%);
+  --primary-600: hsl(252, 53%, 40%);
+  --primary-700: hsl(252, 53%, 30%);
+  --primary-800: hsl(252, 53%, 20%);
+  --primary-900: hsl(252, 53%, 10%);
+  --secondary: hsl(340, 100%, 70%);
+  --accent: hsl(55, 90%, 50%);
+
+  --bg: var(--primary-50);
+  --fg: var(--primary-600);
+
+  /* GRADIENTS */
+  --gradient-100: linear-gradient(
+    to bottom right,
+    var(--primary-400),
+    var(--primary-600)
+  );
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--primary-600);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  font: calc(var(--base-font-size) * 1.6) / var(--line-height)
+    var(--font-familes);
+}
+
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.headline {
+  font-weight: 100;
+  font-size: 1.8rem;
+  color: var(--fg);
+}
+
+.accent {
+  font-weight: 600;
+}
+
+.reactLogo {
+  position: fixed;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: auto;
+  height: 70vh;
+  opacity: 0.1;
+  color: var(--fg);
+  animation: rotation 60s steps(60, start) infinite alternate;
+  animation-play-state: running;
+}
+
+@keyframes rotation {
+  0% {
+    rotate: 0deg;
+    scale: 110%;
+  }
+  100% {
+    rotate: 360deg;
+    scale: 115%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reactLogo {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body {
+    background: #434343;
+  }
+  .reactLogo {
+    color: #000;
+    opacity: 1;
+  }
+  .headline {
+    color: #fff;
+  }
+}
+
+.reduced-motion .reactLogo {
+  animation-play-state: paused;
+}
+
+.prefers-contrast body {
+  background: #434343;
+}
+.prefers-contrast .reactLogo {
+  color: #000;
+  opacity: 1;
+}
+.prefers-contrast .headline {
+  color: #fff;
+}

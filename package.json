@@ -1,7 +1,36 @@
 {
-  "private": true,
-  "name": "zero-base-front-end-develop",
-  "version": "1.0.0",
-  "description": "프론트엔드 개발에 대해 학습합니다.",
-  "author": "yamoo9 <yamoo9@euid.dev>"
+  "name": "learning-react-web",
+  "scripts": {
+    "start": "live-server public --host=localhost --port=3000",
+    "dev": "npm start -- --no-browser",
+    "compile": "babel public/src/chapter/*.js -d public/compiled",
+    "watch": "npm run compile -- --watch",
+    "test": "jest --watchAll",
+    "clear": "rimraf -rf public/compiled"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/client/compiled/"
+    ]
+  },
+  "author": "yamoo9 <yamoo9@euid.dev>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "7.17.6",
+    "@babel/core": "7.17.9",
+    "@babel/node": "7.17.10",
+    "@babel/preset-env": "7.16.11",
+    "@types/jest": "27.4.1",
+    "cross-env": "7.0.3",
+    "eslint": "8.13.0",
+    "eslint-plugin-jest": "26.1.4",
+    "jest": "27.5.1",
+    "live-server": "1.2.2",
+    "regenerator-runtime": "0.13.9",
+    "rimraf": "3.0.2"
+  }
 }
