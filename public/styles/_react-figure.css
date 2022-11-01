@@ -1,0 +1,74 @@
+.react-figure {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: linear-gradient(-45deg, var(--color-react-700), var(--color-react-800), var(--color-react-900), var(--color-black));
+	background-size: 400% 400%;
+	animation: gradientBackground 12s ease forwards;
+  animation-play-state: paused;
+}
+
+.react-figure .link {
+  display: inline-block;
+}
+
+.react-figure .logo {
+  height: clamp(64px, 20vh, 240px);
+  vertical-align: middle;
+  animation: shineRotate 12s linear forwards;
+  animation-play-state: paused;
+}
+
+.react-figure .description {
+  margin-top: 20px;
+  color: var(--color-react-500);
+  animation: shineText 12s linear forwards;
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .react-figure,
+  .react-figure .logo,
+  .react-figure .description {
+    animation-play-state: running;
+  }
+}
+
+@keyframes shineRotate {
+  from {
+    rotate: 0deg;
+    filter: blur(0) drop-shadow(0 0 0 var(--color-react-600));
+  }
+  to {
+    rotate: 360deg;
+    filter: blur(1px) drop-shadow(0 0 16px var(--color-react-400));
+  }
+}
+
+@keyframes shineText {
+  from {
+    filter: drop-shadow(0 0 0 var(--color-react-600));
+  }
+  to {
+    filter: drop-shadow(0 0 16px var(--color-react-400));
+  }
+}
+
+@keyframes gradientBackground {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
