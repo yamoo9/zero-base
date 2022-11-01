@@ -6,8 +6,8 @@
   "description": "React 개발 환경(툴체인)을 직접 구성합니다.",
   "scripts": {
     "start": "",
-    "bundle": "webpack bundle --entry=./src/main.js --output-path=./public --mode=development --target=browserslist",
-    "build": "webpack build --progress --entry=./src/main.js --output-path=./build --mode=production --target=browserslist"
+    "bundle": "webpack --config=./webpack/dev.js",
+    "build": "webpack build --config=./webpack/prod.js --progress"
   },
   "author": {
     "name": "yamoo9",
