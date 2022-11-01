@@ -1,5 +1,5 @@
 ###### Connect To Front-end
 
-# Random Count Up (with React & BOM / DOM / Web API)
+# Icon, UploadButton Component
 
-랜덤 카운트 업 컴포넌트 + 웹 프로그래밍
+아이콘, 업로드 버튼 컴포넌트 디자인 → 개발
