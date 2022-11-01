@@ -1,13 +1,10 @@
-import { styleLog, test, currency, numberWithComma } from './utils/index.js';
+import { createElement as h, StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
-styleLog(
-  '안녕! 웹팩 😃',
-  `
-    font-size: 4rem;
-    font-weight: bold;
-  `
-);
+const Headline = () => h('h1', { className: 'headline' }, 'Hello React ⚛');
+const App = () => h('div', { className: 'App' }, h(Headline));
 
-let price = 89_000;
+const container = document.getElementById('root');
+const root = createRoot(container);
 
-test(currency(price) === `${numberWithComma(price)}원`);
+root.render(h(StrictMode, null, h(App)));
