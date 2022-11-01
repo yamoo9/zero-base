@@ -1,6 +1,6 @@
 export function RandomCountUp(props) {
   var styles = {
-    'animation-name': 'none'
+    animationName: 'none'
   };
   return React.createElement("output", {
     style: styles
