@@ -1,5 +1,9 @@
 export function RandomCountUp(props) {
-  console.log(props.count);
-  return React.createElement("output", null, props.count);
+  var styles = {
+    'animation-name': 'none'
+  };
+  return React.createElement("output", {
+    style: styles
+  }, props.count);
 }
 //# sourceMappingURL=RandomCountUp.js.map

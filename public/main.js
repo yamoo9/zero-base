@@ -1,7 +1,7 @@
 import { RandomCountUp } from './components/RandomCountUp.js';
 import { reloadBrowser } from './helpers/reloadBrowser.js';
 import { getRandomCount } from './helpers/getRandomCount.js';
-var FPS = 1;
+var FPS = 30;
 var MIN = 30;
 var MAX = 60;
 var TARGET_COUNT = getRandomCount(MIN, MAX);
@@ -22,7 +22,12 @@ function animate() {
   count += 1;
   var isComplete = count >= TARGET_COUNT;
   render(count, isComplete);
+
+  if (isComplete) {
+    clearInterval(clearIntervalId);
+    console.log('animation completed');
+  }
 }
 
-setInterval(animate, 1000 / FPS);
+var clearIntervalId = setInterval(animate, 1000 / FPS);
 //# sourceMappingURL=main.js.map

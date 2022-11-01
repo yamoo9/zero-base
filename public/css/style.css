@@ -18,6 +18,10 @@ output {
   animation: wiggle steps(3) 600ms infinite alternate;
 }
 
+.stop-animate {
+  animation-name: none;
+}
+
 @keyframes wiggle {
   0% {
     opacity: 1;

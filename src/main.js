@@ -2,7 +2,12 @@ import { RandomCountUp } from './components/RandomCountUp.js';
 import { reloadBrowser } from './helpers/reloadBrowser.js';
 import { getRandomCount } from './helpers/getRandomCount.js';
 
-const FPS = 1;
+
+// FPS = Frame per Seconds
+// 24~30 FPS
+// 60 FPS
+const FPS = 30;
+
 const MIN = 30;
 const MAX = 60;
 const TARGET_COUNT = getRandomCount(MIN, MAX);
@@ -31,10 +36,10 @@ function animate() {
   // 파생(derived) 상태
   let isComplete = count >= TARGET_COUNT;
   render(count, isComplete);
+  if (isComplete) {
+    clearInterval(clearIntervalId);
+    console.log('animation completed');
+  }
 }
 
-// FPS = Frame per Seconds
-// 24~30 FPS
-// 60 FPS
-
-setInterval(animate, 1000 / FPS);
+let clearIntervalId = setInterval(animate, 1000 / FPS);
