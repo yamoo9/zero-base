@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/UploadButton/index.js"],"names":[],"mappings":"AAAA,cAAc,gBAAd;AACA,cAAc,mBAAd","sourcesContent":["export * from './constants.js';\nexport * from './UploadButton.js';\n"],"file":"index.js"}

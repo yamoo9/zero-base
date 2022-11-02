@@ -1,0 +1,21 @@
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #fff;
+  color: #1c1c1c;
+  font: 100 1.6rem/1.5 'Spoqa Han Sans Neo', sans-serif;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+

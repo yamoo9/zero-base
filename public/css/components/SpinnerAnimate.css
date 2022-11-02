@@ -1,0 +1,28 @@
+.spinner__group {
+  transform-origin: center;
+  animation: spinnerRound 2s linear infinite;
+}
+.spinner__group circle {
+  stroke-linecap: round;
+  animation: spinnerRotate 1.5s ease-in-out infinite;
+}
+@keyframes spinnerRound {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinnerRotate {
+  0% {
+    stroke-dasharray: 0 150;
+    stroke-dashoffset: 0;
+  }
+  47.5% {
+    stroke-dasharray: 42 150;
+    stroke-dashoffset: -16;
+  }
+  95%,
+  to {
+    stroke-dasharray: 42 150;
+    stroke-dashoffset: -59;
+  }
+}
