@@ -116,7 +116,7 @@
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.format.enable": false,
-  "typescript.validate.enable": false,
+  "typescript.validate.enable": true,
 
   "path-intellisense.extensionOnImport": true,
   "path-intellisense.mappings": {
