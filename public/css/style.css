@@ -1,5 +1,16 @@
 @import url('./common/initializer.css');
 
+/* root */
+:root {
+  --Primary:#525577
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -11,36 +22,74 @@ body {
   font: 100 50vh/1 'Spoqa Han Sans Neo', sans-serif;
 }
 
-output {
-  user-select: none;
-  cursor: inherit;
-  animation: wiggle steps(3) 600ms infinite alternate;
-}
+/* button */
 
-.stop-animate {
-  animation-name: none;
-}
-
-@keyframes wiggle {
-  0% {
-    opacity: 1;
-  }
-  33.3333% {
-    opacity: 0.4;
-  }
-  66.6666% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.reloadButton {
+.upload-button {
+  width: 89px;
+  height: 30px;
+  position: relative;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px #DBDDF0;
+  border-radius: 30px;
+  border: none;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  color: var(--Primary);
+  left: calc(50% - 89px/2); 
+  top: calc(50% - 30px/2);
   cursor: pointer;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  font-size: 2rem;
+}
+
+.upload-button:disabled {
+  color: #ADAEB6;
+}
+
+.button-content {
+  position: absolute;
+  height: 12px;
+  left: 12px;
+  top: calc(50% - 12px/2);
+  font-size: 12px;
+}
+
+/* icon */
+
+.button-icon {
+  position: absolute;
+  width: 12px;
+  height: 9px;
+  right: 13.5px;
+  top: 11px;
+}
+
+.spinner_V8m1 {
+  transform-origin:center;
+  animation:spinner_zKoa 2s linear infinite
+}
+
+.spinner_V8m1 circle {
+  stroke-linecap:round;
+  animation:spinner_YpZS 1.5s ease-in-out infinite
+}
+
+@keyframes spinner_zKoa {
+  100% {
+    transform:rotate(360deg)
+  }
+}
+
+@keyframes spinner_YpZS {
+  0% {
+    stroke-dasharray:0 150;
+    stroke-dashoffset:0
+  }
+  47.5% {
+    stroke-dasharray:42 150;
+    stroke-dashoffset:-16
+  }
+  95%,100% {
+    stroke-dasharray:42 150;
+    stroke-dashoffset:-59
+  }
 }
