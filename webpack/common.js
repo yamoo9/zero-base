@@ -4,6 +4,8 @@ import {
   typeScriptLoader,
   styleLoaders,
   styleModulesLoader,
+  assetsLoader,
+  svgAssetsLoader,
 } from './loaders/index.js';
 
 const commonConfig = {
@@ -20,7 +22,14 @@ const commonConfig = {
     filename: '[name].bundle.js',
   },
   module: {
-    rules: [babelLoader, typeScriptLoader, styleLoaders, styleModulesLoader],
+    rules: [
+      babelLoader,
+      typeScriptLoader,
+      styleLoaders,
+      styleModulesLoader,
+      assetsLoader,
+      svgAssetsLoader,
+    ],
   },
 };
 

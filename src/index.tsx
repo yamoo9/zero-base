@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import reactLogo from './assets/react.svg';
+
+console.log(reactLogo);
 
 function getLibVersion(type: 'react' | 'react-dom'): string {
-  console.log(<div>hey</div>);
-
   return (type === 'react' ? React : ReactDOM).version;
 }
 
