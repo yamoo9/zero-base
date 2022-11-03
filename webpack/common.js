@@ -1,5 +1,9 @@
 import { resolve } from 'node:path';
-import { babelLoader, typeScriptLoader } from './loaders/index.js';
+import {
+  babelLoader,
+  typeScriptLoader,
+  styleLoaders,
+} from './loaders/index.js';
 
 const commonConfig = {
   target: ['browserslist'],
@@ -15,7 +19,7 @@ const commonConfig = {
     filename: '[name].bundle.js',
   },
   module: {
-    rules: [babelLoader, typeScriptLoader],
+    rules: [babelLoader, typeScriptLoader, styleLoaders],
   },
 };
 
