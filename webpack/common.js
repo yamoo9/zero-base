@@ -12,6 +12,9 @@ const commonConfig = {
   target: ['browserslist'],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.wasm'],
+    alias: {
+      '@': resolve('src'),
+    },
   },
   entry: {
     main: resolve('src/main.jsx'),

@@ -1,6 +1,6 @@
-import reactLogoPath from '../../assets/react.svg';
+import reactLogoPath from '@/assets/react.svg';
 import classes from './ReactFigure.module.css';
-import { Link } from '../Link/Link.jsx';
+import { Link } from '@/components';
 
 export function ReactFigure() {
   return (

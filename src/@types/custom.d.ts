@@ -1,29 +1,35 @@
 declare module '*.svg' {
-  const content: string;
-  export default content;
+  import * as React from 'react';
+
+  export const ReactComponent: React.FC<
+    React.SVGProps<SVGSVGElement> & { title?: string }
+  >;
+
+  const url: string;
+  export default url;
 }
 
 declare module '*.jpeg' {
-  const content: string;
-  export default content;
+  const url: string;
+  export default url;
 }
 
 declare module '*.jpg' {
-  const content: string;
-  export default content;
+  const url: string;
+  export default url;
 }
 
 declare module '*.gif' {
-  const content: string;
-  export default content;
+  const url: string;
+  export default url;
 }
 
 declare module '*.webp' {
-  const content: string;
-  export default content;
+  const url: string;
+  export default url;
 }
 
 declare module '*.bmp' {
-  const content: string;
-  export default content;
+  const url: string;
+  export default url;
 }
