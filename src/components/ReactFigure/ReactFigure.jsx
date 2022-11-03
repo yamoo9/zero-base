@@ -1,13 +1,18 @@
-import './ReactFigure.css';
-import { Link } from '../Link';
+import reactLogoPath from '../../assets/react.svg';
+import classes from './ReactFigure.module.css';
+import { Link } from '../Link/Link.jsx';
+
+console.log(reactLogoPath);
 
 export function ReactFigure() {
   return (
-    <figure className="react-figure">
+    <figure className={classes.container}>
       <Link href="https://reactjs.org" external>
-        <img className="logo" src="assets/react.svg" alt="React" />
+        <img className={classes.logo} src="assets/react.svg" alt="React" />
       </Link>
-      <figcaption className="description">React 툴체인 매뉴얼 구성</figcaption>
+      <figcaption className={classes.description}>
+        React 툴체인 매뉴얼 구성
+      </figcaption>
     </figure>
   );
 }

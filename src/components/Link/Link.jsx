@@ -1,3 +1,5 @@
+import styles from './Link.module.scss';
+
 export function Link({ href, external = false, children }) {
   let externalProps = null;
 
@@ -9,7 +11,7 @@ export function Link({ href, external = false, children }) {
   }
 
   return (
-    <a className="link" href={href} {...externalProps}>
+    <a className={styles.container} href={href} {...externalProps}>
       {children}
     </a>
   );

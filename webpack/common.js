@@ -3,6 +3,7 @@ import {
   babelLoader,
   typeScriptLoader,
   styleLoaders,
+  styleModulesLoader,
 } from './loaders/index.js';
 
 const commonConfig = {
@@ -19,7 +20,7 @@ const commonConfig = {
     filename: '[name].bundle.js',
   },
   module: {
-    rules: [babelLoader, typeScriptLoader, styleLoaders],
+    rules: [babelLoader, typeScriptLoader, styleLoaders, styleModulesLoader],
   },
 };
 

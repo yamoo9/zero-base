@@ -1,5 +1,5 @@
-export const styleLoaders = {
-  test: /\.s?[ac]ss$/i,
+export const styleModulesLoader = {
+  test: /\.module\.s?[ac]ss$/i,
   use: [
     'style-loader',
     {
@@ -7,10 +7,13 @@ export const styleLoaders = {
       options: {
         sourceMap: true,
         importLoaders: 2,
+        modules: {
+          localIdentName: '[folder]_[local]__[hash:base64:5]',
+        },
       },
     },
     'postcss-loader',
     'sass-loader',
   ],
-  exclude: /\.module\.s?[ac]ss$/i,
+  include: /\.module\.s?[ac]ss$/i,
 };
