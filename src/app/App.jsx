@@ -14,6 +14,10 @@ export default function App() {
 let error = null;
 
 // 오류 메시지를 포함한 객체를 추가해보세요.
+error = {
+  title: 'UNKNOWN ERROR',
+  message: '알 수 없는 오류가 발생했습니다.',
+};
 
 /* -------------------------------------------------------------------------- */
 
@@ -26,15 +30,19 @@ const ConditionalRendering = () => {
 
   // JSX 조건부 렌더링: if 문
   // 오류가 존재하면 렌더링 되도록 코드를 작성합니다.
-  const displayErrorState = (
-    <div className={styles.container}>
-      <h1 className={styles.headline}>
-        <EmojiOops height={200} />
-        {/* 오류 메시지가 출력되도록 코드를 변경합니다. */}
-        {error}
-      </h1>
-    </div>
-  );
+  if (error) {
+    const displayErrorState = (
+      <div className={styles.container}>
+        <h1 className={styles.headline}>
+          <EmojiOops height={200} />
+          {/* 오류 메시지가 출력되도록 코드를 변경합니다. */}
+          {error.message}
+        </h1>
+      </div>
+    );
+
+    return displayErrorState;
+  }
 
   return (
     <div className={styles.container}>
