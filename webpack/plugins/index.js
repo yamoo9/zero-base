@@ -2,3 +2,8 @@ export * from './createDotEnv.js';
 export * from './createHtmlTemplate.js';
 export * from './createCopyAssets.js';
 export * from './createCssFiles.js';
+export * from './createCssMinify.js';
+export * from './createJsMinify.js';
+export * from './createImageMinify.js';
+export * from './createCleanup.js';
+export * from './createBundleAnalyzer.js';

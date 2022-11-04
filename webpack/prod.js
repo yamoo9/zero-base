@@ -5,6 +5,11 @@ import {
   createDotEnv,
   createCopyAssets,
   createCssFiles,
+  createCssMinify,
+  createJsMinify,
+  createImageMinify,
+  createCleanup,
+  createBundleAnalyzer,
 } from './plugins/index.js';
 
 const prodConfig = merge(commonConfig, {
@@ -19,7 +24,17 @@ const prodConfig = merge(commonConfig, {
     createDotEnv({ path: '.env/.prod' }),
     createCopyAssets(),
     createCssFiles(),
+    createBundleAnalyzer(),
   ].filter(Boolean),
+  optimization: {
+    minimize: true,
+    minimizer: [
+      createCssMinify(),
+      createJsMinify(),
+      createImageMinify(),
+      createCleanup(),
+    ].filter(Boolean),
+  },
 });
 
 export default prodConfig;

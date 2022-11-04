@@ -19,7 +19,13 @@ const commonConfig = {
     },
   },
   entry: {
-    main: resolve('src/main.jsx'),
+    main: {
+      import: resolve('src/main.jsx'),
+      dependOn: 'vendors',
+    },
+    vendors: ['react', 'react-dom'],
+    // react: 'react',
+    // 'react-dom': 'react-dom',
   },
   output: {
     path: resolve('public'),
