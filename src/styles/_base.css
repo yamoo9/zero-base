@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+figure {
+  margin: 0;
+}
+
+a:has(img) {
+  display: inline-block;
+}
