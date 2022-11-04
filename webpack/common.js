@@ -1,7 +1,8 @@
 import { resolve } from 'node:path';
 import {
-  babelLoader,
-  typeScriptLoader,
+  esbuildLoader,
+  // babelLoader,
+  // typeScriptLoader,
   styleLoaders,
   styleModulesLoader,
   assetsLoader,
@@ -33,8 +34,9 @@ const commonConfig = {
   },
   module: {
     rules: [
-      babelLoader,
-      typeScriptLoader,
+      esbuildLoader,
+      // babelLoader,
+      // typeScriptLoader,
       styleLoaders,
       styleModulesLoader,
       assetsLoader,
