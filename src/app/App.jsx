@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+import { Fragment } from 'react';
 import styles from './App.module.css';
 import { EmojiOops, PrettyPrintCode } from '@/components';
 
@@ -48,6 +49,8 @@ const ConditionalRendering = () => {
 
 const db = require('../api/db.json');
 
+// console.log(db);
+
 const {
   navigation: { items: list },
 } = db;
@@ -82,11 +85,25 @@ const ListRedering = () => {
       {/* 객체 리스트 렌더링 */}
       <dl className={styles.descriptionList}>
         {/* 웹 표준을 준수해 설명 목록을 화면에 출력해봅니다. */}
+        {Object.entries(db).map(([key, value]) => {
+          return (
+            <Fragment key={key}>
+              <dt>{key}</dt>
+              <dd>
+                {typeof value === 'object' ? (
+                  <PrettyPrintCode code={value} />
+                ) : (
+                  value
+                )}
+              </dd>
+            </Fragment>
+          );
+        })}
         {/* `db` 객체의 "속성", "값" 쌍을 순환하여 리스트 렌더링 해보세요. */}
         {/* 값의 유형이 객체 또는 배열인 경우, 코드가 화면에 출력되도록 설정합니다. */}
         {/* `isArray`, `isObject` 유틸리티 함수를 만들어 활용하세요. */}
         {/* 코드를 화면에 출력할 때는 <PrettyPrintCode /> 컴포넌트를 활용합니다. (`code` 속성) */}
-        <PrettyPrintCode />
+        {/* <PrettyPrintCode code={db} /> */}
       </dl>
     </div>
   );
