@@ -1,9 +1,14 @@
+import './Button.css';
 import { render, screen } from '@testing-library/react';
 
 /* -------------------------------------------------------------------------- */
 
 function Button(props) {
-  return <button type={props.type ?? 'button'}>{props.children}</button>;
+  return (
+    <button className="Button" type={props.type ?? 'button'}>
+      {props.children}
+    </button>
+  );
 }
 
 /* -------------------------------------------------------------------------- */
