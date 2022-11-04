@@ -6,10 +6,10 @@
   "description": "React 개발 환경(툴체인)을 직접 구성합니다.",
   "scripts": {
     "start": "npm run dev -- --open",
-    "dev": "webpack server --config=./webpack/dev.js",
-    "bundle": "webpack --config=./webpack/dev.js",
+    "dev": "webpack server --config=./webpack/dev.js --progress",
+    "bundle": "webpack --config=./webpack/dev.js --progress",
     "build": "webpack build --config=./webpack/prod.js --progress",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "author": {
     "name": "yamoo9",

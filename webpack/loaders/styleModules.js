@@ -1,5 +1,6 @@
 export const styleModulesLoader = {
-  test: /\.module\.s?[ac]ss$/i,
+  test: /\.module\.(css|s[ac]ss)$/i,
+  include: /\.module\.(css|s[ac]ss)$/i,
   use: [
     'style-loader',
     {
@@ -15,5 +16,4 @@ export const styleModulesLoader = {
     'postcss-loader',
     'sass-loader',
   ],
-  include: /\.module\.s?[ac]ss$/i,
 };

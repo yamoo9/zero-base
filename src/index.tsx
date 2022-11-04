@@ -8,4 +8,4 @@ function getLibVersion(type: 'react' | 'react-dom'): string {
   return (type === 'react' ? React : ReactDOM).version;
 }
 
-console.log(getLibVersion('react-dom'));
+console.log(getLibVersion('react'));
