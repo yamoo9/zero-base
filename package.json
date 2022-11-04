@@ -6,9 +6,9 @@
   "description": "React 개발 환경(툴체인)을 직접 구성합니다.",
   "scripts": {
     "start": "npm run dev -- --open",
-    "dev": "webpack server --config=./webpack/dev.js --progress",
-    "bundle": "webpack --config=./webpack/dev.js --progress",
-    "build": "webpack build --config=./webpack/prod.js --progress",
+    "dev": "webpack server --config=./webpack/dev.js --node-env=development --progress",
+    "bundle": "webpack --config=./webpack/dev.js --node-env=development  --progress",
+    "build": "webpack build --config=./webpack/prod.js --node-env=production --progress",
     "test": "jest --watchAll"
   },
   "author": {
@@ -45,6 +45,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "29.2.2",
     "jest-environment-jsdom": "29.2.2",
+    "mini-css-extract-plugin": "2.6.1",
     "new-url-loader": "0.1.1",
     "npm": "8.19.2",
     "postcss": "8.4.18",
