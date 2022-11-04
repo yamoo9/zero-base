@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="<%= lang %>">
 
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="<%= charset %>" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>React 툴체인 매뉴얼 구성</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="stylesheet" href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" />
     <link rel="icon" href="assets/react.svg" />
     
@@ -27,9 +26,8 @@
     </div>
     <![endif]-->
 
-    <div id="root"></div>
+    <div id="<%= rootId %>"></div>
 
-    <script type="module" src="main.bundle.js"></script>
   </body>
 
 </html>
