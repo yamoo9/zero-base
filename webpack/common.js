@@ -8,6 +8,8 @@ import {
   svgAssetsLoader,
 } from './loaders/index.js';
 
+import { createDotEnv } from './plugins/index.js';
+
 const commonConfig = {
   target: ['browserslist'],
   resolve: {
@@ -34,6 +36,7 @@ const commonConfig = {
       svgAssetsLoader,
     ],
   },
+  plugins: [createDotEnv()].filter(Boolean),
 };
 
 export default commonConfig;
