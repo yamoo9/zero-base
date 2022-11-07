@@ -9,7 +9,7 @@ import { StrictMode } from 'react';
 import App from 'app/App';
 
 // 환경 변수 활용
-// console.log(process.env);
+// console.log(process.env.PUBLIC_URL);
 
 // v17 API (support IE)
 {
