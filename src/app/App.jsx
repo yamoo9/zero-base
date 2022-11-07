@@ -2,10 +2,12 @@
 import styles from './App.module.scss';
 import logo from 'assets/logo.svg';
 import { getAsset } from 'utils';
+import { Demo } from 'components';
 
 export default function App() {
   return (
     <div className={styles.App}>
+      <Demo />
       <header className={styles.AppHeader}>
         <img src={logo} className={styles.AppLogo} alt="React 로고" />
         <img
