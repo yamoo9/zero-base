@@ -1,5 +1,5 @@
 import './ToggleButton.css';
 
-export function ToggleButton(props) {
-  return <div>{props.on ? props.onText : props.offText}</div>;
+export function ToggleButton({ onText, offText, on }) {
+  return <button type="button">{on ? onText : offText}</button>;
 }

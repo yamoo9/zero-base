@@ -34,7 +34,8 @@
       "react-app/jest"
     ],
     "rules": {
-      "react/self-closing-comp": "warn"
+      "react/self-closing-comp": "warn",
+      "testing-library/no-debugging-utils": "off"
     }
   },
   "browserslist": {
