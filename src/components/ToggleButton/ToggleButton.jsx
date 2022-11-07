@@ -1,13 +1,19 @@
 import './ToggleButton.css';
+import { classNames } from 'utils';
 
-export function ToggleButton({ onText, offText, on, onToggle }) {
+export function ToggleButton({ onText, offText, on, onToggle, activeClass }) {
   return (
     <button
       type="button"
-      className={`ToggleButton ${on ? 'ToggleButton--on' : ''}`.trim()}
+      // className={`ToggleButton ${on ? 'ToggleButton--on' : ''}`.trim()}
+      className={classNames('ToggleButton', { [activeClass]: on })}
       onClick={onToggle}
     >
       {on ? onText : offText}
     </button>
   );
 }
+
+ToggleButton.defaultProps = {
+  activeClass: 'ToggleButton--on',
+};
