@@ -1,5 +1,5 @@
 import styles from './App.module.scss';
-import { ToggleButton, Banner } from 'components';
+import { ToggleButton, ToggleButtonClass, Banner } from 'components';
 
 export default function App() {
   return (
@@ -30,7 +30,7 @@ export default function App() {
           offText="OFF"
           onToggle={() => console.log('hi toggle button')}
         />
-        <ToggleButton onText="ON" offText="OFF" on />
+        <ToggleButtonClass onText="ON" offText="OFF" on />
       </div>
     </div>
   );
