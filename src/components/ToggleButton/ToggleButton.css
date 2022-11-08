@@ -1,0 +1,19 @@
+.ToggleButton {
+  --primary: #27262e;
+  --secondary: #f6f6fd;
+
+  cursor: pointer;
+  background: var(--secondary);
+  border-radius: 3px;
+  margin: 1px;
+  border: 2px solid var(--primary);
+  padding: 0.2em 0.55em;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.ToggleButton--on {
+  background: var(--primary);
+  color: var(--secondary);
+}
