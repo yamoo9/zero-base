@@ -37,25 +37,36 @@ describe('ToggleButton 컴포넌트', () => {
   });
 
   test('`onToggle` 속성(prop)에 연결된 함수가 정상적으로 실행됩니다.', () => {
-    let expected = 'triggering toggle event';
-    let received = '';
+    const mockFn = jest.fn(); // 모의(mock) 함수
 
-    render(
-      <ToggleButton
-        onToggle={() => {
-          received = expected;
-        }}
-      />
-    );
+    render(<ToggleButton onToggle={mockFn} />);
 
-    expect(received).not.toBe(expected);
+    const element = screen.getByRole('button');
+    fireEvent.click(element);
 
-    const element = screen.queryByRole('button');
-
-    fireEvent.click(element); // click button element
-
-    expect(received).toBe(expected);
+    expect(mockFn).toHaveBeenCalled();
   });
+
+  // test('`onToggle` 속성(prop)에 연결된 함수가 정상적으로 실행됩니다.', () => {
+  //   let expected = 'triggering toggle event';
+  //   let received = '';
+
+  //   render(
+  //     <ToggleButton
+  //       onToggle={() => {
+  //         received = expected;
+  //       }}
+  //     />
+  //   );
+
+  //   expect(received).not.toBe(expected);
+
+  //   const element = screen.queryByRole('button');
+
+  //   fireEvent.click(element); // click button element
+
+  //   expect(received).toBe(expected);
+  // });
 
   test(`활성 상태의 컴포넌트는 'ToggleButton--on' 클래스 이름을 포함한다.`, () => {
     let expected = 'ToggleButton--on';

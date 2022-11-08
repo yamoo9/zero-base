@@ -31,18 +31,18 @@ describe('classNames 유틸리티', () => {
     expect(classes).toBe(expected);
   });
 
-  test(`classNames(null, false, 'bar', undefined, 0, 1, { baz: null }, '')  →  'bar 1' 입니다.`, () => {
+  test(`classNames(null, false, 'a', undefined, 0, 1, { b: null }, '')  →  'a 1' 입니다.`, () => {
     let classes = classNames(
       null,
       false,
-      'bar',
+      'a',
       undefined,
       0,
       1,
-      { baz: null },
+      { b: null },
       ''
     );
-    let expected = 'bar 1';
+    let expected = 'a 1';
     expect(classes).toBe(expected);
   });
 

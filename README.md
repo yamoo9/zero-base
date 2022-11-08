@@ -16,4 +16,4 @@ React 컴포넌트 테스트 방법에 대해 학습합니다.
   - [x] 텍스트(text) 기반 테스트 (getBy*, queryBy*)
   - [x] 역할(role) 기반 테스트
   - [x] 텍스트 콘텐츠(text content) 기반 테스트
-  - [x] 이벤트(event) 테스트
+  - [x] 이벤트(event) 테스트 (Mock Function Test)
