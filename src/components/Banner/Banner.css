@@ -1,0 +1,9 @@
+.Banner {
+  margin: 0;
+  background-size: cover;
+}
+
+.Banner__image {
+  max-width: 100%;
+  height: auto;
+}
