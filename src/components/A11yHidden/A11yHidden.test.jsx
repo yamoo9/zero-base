@@ -45,16 +45,17 @@ describe('A11yHidden 컴포넌트', () => {
     expect(element).toHaveStyle(expected);
   });
 
-  test.skip('컴포너트의 콘텐츠는 “접근성 감춤 요건”에 충족합니다.', () => {
+  test.only('컴포너트의 콘텐츠는 “접근성 감춤 요건”에 충족합니다.', () => {
     // "범용적으로 쓰이는 접근성 감춤 클래스 이름 요건에 충족하는가" `className` prop 테스트
-    // render(<A11yHidden data-testid="tester" />);
+    render(<A11yHidden data-testid="tester" />);
 
-    // let element = screen.getByTestId('tester');
-    // expect(element).toBeA11yHidden();
+    let element = screen.getByTestId('tester');
+    expect(element).toBeA11yHidden();
 
     cleanup();
 
     // "접근성 감춤 스타일 요건에 충족하는가" `style` prop 테스트
+    // position, clip, width, height, overflow, margin, padding, border, white-space
     const expected = {
       overflow: 'hidden',
       position: 'absolute',
@@ -70,7 +71,7 @@ describe('A11yHidden 컴포넌트', () => {
 
     render(<A11yHidden style={expected} data-testid="tester" />);
 
-    const element = screen.getByTestId('tester');
+    element = screen.getByTestId('tester');
     expect(element).toBeA11yHidden();
   });
 

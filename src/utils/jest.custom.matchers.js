@@ -29,7 +29,11 @@ expect.extend({
     if (styleKeyProps.length > 0) {
       let stylePropsString = styleKeyProps.join(', ');
       let hasRequiredProps = requiredProps.split(', ').every((name) => {
-        return stylePropsString.includes(name);
+        if (stylePropsString.includes(name)) {
+          return true;
+        } else {
+          return false;
+        }
       });
 
       if (!hasRequiredProps) {
@@ -47,46 +51,47 @@ expect.extend({
     for (const [key, value] of Object.entries(styles)) {
       switch (key) {
         case 'overflow':
-          styleProps.push(value === 'hidden');
+          styleProps.push([key, value === 'hidden']);
           break;
         case 'position':
-          styleProps.push(value === 'absolute');
+          styleProps.push([key, value === 'absolute']);
           break;
         case 'width':
         case 'height':
-          styleProps.push(parseInt(value, 10) > 0);
+          styleProps.push([key, parseInt(value, 10) > 0]);
           break;
         case 'margin-top':
         case 'margin-left':
         case 'margin-right':
         case 'margin-bottom':
-          styleProps.push(parseInt(value, 10) < 0);
+          styleProps.push([key, parseInt(value, 10) < 0]);
           break;
         case 'padding-top':
         case 'padding-left':
         case 'padding-right':
         case 'padding-bottom':
-          styleProps.push(parseInt(value, 10) === 0);
+          styleProps.push([key, parseInt(value, 10) === 0]);
           break;
         case 'border-width':
-          styleProps.push(parseInt(value, 10) === 0);
+          styleProps.push([key, parseInt(value, 10) === 0]);
           break;
         case 'clip':
-          styleProps.push(
+          styleProps.push([
+            key,
             value
               .replace(/^rect\(|\)$/g, '')
               .split(',')
-              .every((v) => parseInt(v, 10) === 0)
-          );
+              .every((v) => /(1|0)/.test(parseInt(v, 10))),
+          ]);
           break;
         case 'white-space':
-          styleProps.push(value === 'nowrap');
+          styleProps.push([key, value === 'nowrap']);
           break;
         default:
       }
     }
 
-    if (!styleProps.every(Boolean)) {
+    if (!styleProps.every(([key, value]) => value)) {
       return {
         pass: false,
         message() {
