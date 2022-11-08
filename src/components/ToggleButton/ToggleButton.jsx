@@ -1,5 +1,6 @@
 import './ToggleButton.css';
-import { classNames } from 'utils';
+// import { classNames } from 'utils';
+import classNames from 'classnames';
 
 export function ToggleButton({ onText, offText, on, onToggle, activeClass }) {
   return (
