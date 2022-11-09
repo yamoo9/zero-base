@@ -1,0 +1,8 @@
+{
+  "location": "src/components",
+  "module": false,
+  "ext": ".jsx",
+  "styleExt": ".css",
+  "testSuffix": "test",
+  "styleModuleClassName": "container"
+}
