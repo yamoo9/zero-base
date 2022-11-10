@@ -3,6 +3,7 @@ import './AboutSideEffects.css';
 
 export class AboutSideEffects extends React.Component {
   state = {
+    query: 'yamoo9',
     loading: true,
     error: null,
     data: [],
@@ -15,7 +16,20 @@ export class AboutSideEffects extends React.Component {
       return <div role="alert">로딩 중...</div>;
     }
 
-    return <div className="AboutSideEffects">AboutSideEffects</div>;
+    return (
+      <div className="AboutSideEffects">
+        <h2>NPM 사용자 정보 : {this.state.query}</h2>
+        <ul>
+          {this.state.data.map((item, index) => (
+            <li key={index}>
+              <strong>{item.author.name}</strong>
+              <span>{item.author.email}</span>
+              <p>{item.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
 
   componentDidMount() {
@@ -24,26 +38,29 @@ export class AboutSideEffects extends React.Component {
 
     // side effect 1.
     // network request/response
-    this.fetchNpmQueryData('yamoo9', 3)
-      .then((response) => response.json())
-      .then((json) => {
-        // 데이터 로딩에 성공했으므로 상태 업데이트
-        this.setState({
-          data: json.objects.map(({ package: { description } }) => description),
-        });
-      })
-      .catch((error) => {
-        // 데이터 로딩에 실패했으므로 상태 업데이트
-        this.setState({ error });
-      })
-      .finally(() => {
-        this.setState({ loading: false });
-      });
+    setTimeout(() => {
+      this.fetchNpmQueryData(this.state.query, 3);
+    }, 1200);
   }
 
   async fetchNpmQueryData(query, size = 10) {
-    return fetch(
-      `https://registry.npmjs.org/-/v1/search?text=${query}&size=${size}`
-    );
+    try {
+      const response = await fetch(
+        `https://registry.npmjs.org/-/v1/search?text=${query}&size=${size}`
+      );
+
+      const { objects } = await response.json();
+
+      this.setState({
+        data: objects.map(({ package: { author, description } }) => ({
+          author,
+          description,
+        })),
+      });
+    } catch (error) {
+      this.setState({ error });
+    } finally {
+      this.setState({ loading: false });
+    }
   }
 }
