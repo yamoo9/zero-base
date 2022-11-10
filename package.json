@@ -1,5 +1,5 @@
 {
-  "name": "react-stateless-component",
+  "name": "react-lifting-state-up",
   "version": "0.1.0",
   "private": true,
   "peerDependencies": {

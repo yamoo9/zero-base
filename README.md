@@ -1,14 +1,7 @@
-# Stateful 컴포넌트
+# 상태 끌어 올리기 (Lifting State Up)
 
-상태를 가지는 컴포넌트 설계에 대해 학습합니다.
+컴포넌트 간 상태 공유를 위해 필요한 경우, 상위 컴포넌트로 상태를 끌어 올려 관리합니다.
 
-- [ ] React Class Component
-  - [x] Component State
-  - [ ] Life Cycle Methods
-
-## 컴포넌트 테스트
-
-상태를 가지는 컴포넌트와 가지지 않는 컴포넌트 조합을 테스트 합니다.
-
-- [ ] BinaryCalcurator
-- [ ] Jest in Case
+- Shopping Cart UI
+  - [ ] Counter Component
+  - [ ] Cart Component
