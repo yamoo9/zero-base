@@ -19,7 +19,7 @@ export class AboutSideEffects extends React.Component {
     return (
       <div className="AboutSideEffects">
         <h2>NPM 사용자 정보 : {this.state.query}</h2>
-        <ul>
+        <ul ref={this.accessDomElRefCallback}>
           {this.state.data.map((item, index) => (
             <li key={index}>
               <strong>{item.author.name}</strong>
@@ -41,6 +41,31 @@ export class AboutSideEffects extends React.Component {
     setTimeout(() => {
       this.fetchNpmQueryData(this.state.query, 3);
     }, 1200);
+
+    // side effect 2.
+    // DOM 요소 접근/조작
+    // this.accessDomElement();
+  }
+
+  accessDomElRefCallback(domElement) {
+    // console.log(domElement); // <ul>
+
+    const elementInfo = domElement.getBoundingClientRect();
+    // console.log(elementInfo);
+
+    domElement.addEventListener('click', (e) => {
+      console.log(e.target);
+    });
+
+    domElement.style.cssText = `
+      padding: 20px;
+      background-color: yellow;
+    `;
+  }
+
+  accessDomElement() {
+    // const ulElement = document.querySelector('.AboutSideEffects ul');
+    // console.log(ulElement);
   }
 
   async fetchNpmQueryData(query, size = 10) {
