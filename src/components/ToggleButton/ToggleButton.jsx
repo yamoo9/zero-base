@@ -1,12 +1,10 @@
 import './ToggleButton.css';
-// import { classNames } from 'utils';
 import classNames from 'classnames';
 
 export function ToggleButton({ onText, offText, on, onToggle, activeClass }) {
   return (
     <button
       type="button"
-      // className={`ToggleButton ${on ? 'ToggleButton--on' : ''}`.trim()}
       className={classNames('ToggleButton', { [activeClass]: on })}
       onClick={onToggle}
     >
@@ -17,4 +15,5 @@ export function ToggleButton({ onText, offText, on, onToggle, activeClass }) {
 
 ToggleButton.defaultProps = {
   activeClass: 'ToggleButton--on',
+  on: false,
 };
