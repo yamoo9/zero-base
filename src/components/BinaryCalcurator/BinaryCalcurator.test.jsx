@@ -1,3 +1,4 @@
+import cases from 'jest-in-case';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BinaryCalcurator } from './BinaryCalcurator';
 
@@ -35,64 +36,24 @@ describe('BinaryCalcurator 컴포넌트', () => {
     expect(firstButton).toHaveTextContent(1);
   });
 
-  test('컴포넌트에 렌더링 된 3개의 버튼이 모두 클릭된 경우, 제목은 "바이너리 계산 값 : 7" 입니다.', () => {
-    let buttonStates = [true, true, true];
-    let expected = 7;
+  cases(
+    '컴포넌트 내부의 버튼 클릭 여부에 따른 바이너리 계산 값 검토',
+    ({ buttonStates, expected }) => {
+      render(<BinaryCalcurator numberOfButtons={buttonStates.length} />);
 
-    render(<BinaryCalcurator numberOfButtons={buttonStates.length} />);
+      const buttons = screen.getAllByRole('button');
+      const heading = screen.getByRole('heading');
 
-    const buttons = screen.getAllByRole('button');
-    const heading = screen.getByRole('heading');
+      buttonStates.forEach(
+        (buttonState, index) => buttonState && fireEvent.click(buttons[index])
+      );
 
-    buttonStates.forEach(
-      (buttonState, index) => buttonState && fireEvent.click(buttons[index])
-    );
-
-    expect(heading).toHaveTextContent(`바이너리 계산 값: ${expected}`);
-  });
-
-  test('컴포넌트에 렌더링 된 6개의 버튼의 상태가 "000101", 제목은 "바이너리 계산 값 : 5" 입니다.', () => {
-    let buttonStates = [false, false, false, true, false, true];
-    let expected = 5;
-
-    render(<BinaryCalcurator numberOfButtons={buttonStates.length} />);
-
-    const buttons = screen.getAllByRole('button');
-    const heading = screen.getByRole('heading');
-
-    buttonStates.forEach(
-      (buttonState, index) => buttonState && fireEvent.click(buttons[index])
-    );
-
-    expect(heading).toHaveTextContent(`바이너리 계산 값: ${expected}`);
-  });
-
-  test('컴포넌트에 렌더링 된 12개의 버튼의 상태가 "110111010001", 제목은 "바이너리 계산 값 : 3537" 입니다.', () => {
-    let buttonStates = [
-      true,
-      true,
-      false,
-      true,
-      true,
-      true,
-      false,
-      true,
-      false,
-      false,
-      false,
-      true,
-    ];
-    let expected = 3537;
-
-    render(<BinaryCalcurator numberOfButtons={buttonStates.length} />);
-
-    const buttons = screen.getAllByRole('button');
-    const heading = screen.getByRole('heading');
-
-    buttonStates.forEach(
-      (buttonState, index) => buttonState && fireEvent.click(buttons[index])
-    );
-
-    expect(heading).toHaveTextContent(`바이너리 계산 값: ${expected}`);
-  });
+      expect(heading).toHaveTextContent(`바이너리 계산 값: ${expected}`);
+    },
+    [
+      { name: '"000" → 0', buttonStates: [false, false, false], expected: 0 },
+      { name: '"010" → 2', buttonStates: [false, true, false], expected: 2 },
+      { name: '"101" → 5', buttonStates: [true, false, true], expected: 5 },
+    ]
+  );
 });
