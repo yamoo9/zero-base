@@ -2,9 +2,6 @@ import { Component } from 'react';
 import styles from './App.module.scss';
 import { LearnRC } from '../components';
 
-// [functional] stateless component
-// [class] stateful component
-
 export default class App extends Component {
   state = {
     showLearnRC: true,
@@ -18,13 +15,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className={styles.App}>
+      <div className={styles.App} lang="en">
         <div className={styles.wrapper}>
           <button type="button" onClick={this.handleToggleLearnRC}>
             toggle
           </button>
         </div>
-        {this.state.showLearnRC ? <LearnRC headline="React World" /> : 'App'}
+        {this.state.showLearnRC ? (
+          <LearnRC headline="React World" />
+        ) : (
+          <h1>App</h1>
+        )}
       </div>
     );
   }
