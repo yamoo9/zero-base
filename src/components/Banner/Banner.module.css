@@ -1,0 +1,10 @@
+.container {
+  margin: 0;
+  background-size: cover;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}

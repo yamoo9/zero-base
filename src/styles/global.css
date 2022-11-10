@@ -1,0 +1,7 @@
+@import-normalize;
+
+body {
+  margin: 0;
+  background: #fff;
+  font: 300 1rem/1.5 'Spoqa Hans Sans', sans-serif;
+}
