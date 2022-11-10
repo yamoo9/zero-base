@@ -3,5 +3,6 @@
   "module": false,
   "ext": ".jsx",
   "styleExt": ".css",
-  "testSuffix": "test"
+  "testSuffix": "test",
+  "styleModuleClassName": "container"
 }

@@ -28,19 +28,23 @@ module.exports = (config) => {
 
     let componentDirEntryPath = resolve(`${location}/index.js`);
 
-    let entryContents = fs.readFileSync(componentDirEntryPath, {
-      encoding: 'utf-8',
-    });
+    if (fs.existsSync(componentDirEntryPath)) {
+      let entryContents = fs.readFileSync(componentDirEntryPath, {
+        encoding: 'utf-8',
+      });
 
-    entryContents = entryContents.trim();
+      entryContents = entryContents.trim();
 
-    let editedEntryContents = entryContents.replace(
-      `export * from './${name}';`,
-      ''
-    );
+      let editedEntryContents = entryContents.replace(
+        `export * from './${name}';`,
+        ''
+      );
 
-    fs.writeFileSync(componentDirEntryPath, editedEntryContents);
+      fs.writeFileSync(componentDirEntryPath, editedEntryContents);
 
-    console.log(editTag(`${removeCwdPath(componentDirEntryPath)}/ 파일 수정`));
+      console.log(
+        editTag(`${removeCwdPath(componentDirEntryPath)}/ 파일 수정`)
+      );
+    }
   }
 };

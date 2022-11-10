@@ -1,5 +1,5 @@
 const fs = require("node:fs");
-const { resolve } = require("node:path");
+const { resolve, join } = require("node:path");
 const removeCwdPath = require('./_removeCwdPath');
 const { createTag, editTag } = require('./_tags');
 
@@ -10,13 +10,14 @@ module.exports = function scaffoldReactComponentFiles({
   ext,
   styleExt,
   testSuffix,
+  styleModuleClassName,
 }) {
   if (name) {
 
     let dirPath = resolve(`${location}/${name}`);
 
     if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath);
+      fs.mkdirSync(dirPath, { recursive: true });
       console.log(createTag(`${removeCwdPath(dirPath)} 디렉토리 생성`));
     }
 
@@ -26,11 +27,13 @@ module.exports = function scaffoldReactComponentFiles({
     // 엔트리 파일
     
     let entryFilePath = `${dirPath}/index.js`;
+
+    let reactEntryTemplatePath = join(__dirname, '../templates/index.js');
+    let reactEntryFileTemplate = fs.readFileSync(reactEntryTemplatePath, { encoding: 'utf-8' });
+
+    reactEntryFileTemplate = reactEntryFileTemplate.replaceAll('{name}', name);
     
-    fs.writeFileSync(
-      resolve(entryFilePath),
-      `export * from './${name}'`
-    );
+    fs.writeFileSync(resolve(entryFilePath), reactEntryFileTemplate);
 
     console.log(createTag(`${removeCwdPath(entryFilePath)}/ 파일 생성`));
 
@@ -39,13 +42,18 @@ module.exports = function scaffoldReactComponentFiles({
 
     let reactFilePath = `${dirPath}/${name}${ext}`;
 
+    let reactTemplatePath = join(__dirname, '../templates/[name].jsx');
+    let reactFileTemplate = fs.readFileSync(reactTemplatePath, { encoding: 'utf-8' });
+
+    reactFileTemplate = reactFileTemplate.replaceAll('{name}', name);
+    
+    if (module) {
+      reactFileTemplate = reactFileTemplate.replace(`"${name}"`, `{styles.${styleModuleClassName}}`);
+    }
+
     fs.writeFileSync(
       resolve(reactFilePath),
-      `import ${module ? 'styles from' : ''} "./${styleFileName}";
-
-export function ${name}({...restProps}) {
-  return <div className=${module ? `{styles.container}` : `"${name}"`} {...restProps}></div>;
-}`
+      `import ${module ? 'styles from' : ''} "./${styleFileName}";\n\n${reactFileTemplate}`
     );
 
     console.log(createTag(`${removeCwdPath(reactFilePath)}/ 파일 생성`));
@@ -57,7 +65,7 @@ export function ${name}({...restProps}) {
 
     fs.writeFileSync(
       resolve(reactStyleFilePath),
-      module ? `.container {}` : `.${name} {}`
+      module ? `.${styleModuleClassName} {}` : `.${name} {}`
     );
 
     console.log(createTag(`${removeCwdPath(reactStyleFilePath)}/ 파일 생성`));
@@ -67,18 +75,14 @@ export function ${name}({...restProps}) {
 
     let reactTestFilePath = `${dirPath}/${name}.${testSuffix}${ext}`;
 
+    let reactTestTemplatePath = join(__dirname, '../templates/[name].test.jsx');
+    let reactTestFileTemplate = fs.readFileSync(reactTestTemplatePath, { encoding: 'utf-8' });
+
+    reactTestFileTemplate = reactTestFileTemplate.replaceAll('{name}', name);
+
     fs.writeFileSync(
       resolve(reactTestFilePath),
-      `import { render, screen } from '@testing-library/react';
-import { ${name} } from './${name}';
-
-describe('${name} 컴포넌트', () => {
-  test('${name} 컴포넌트는 정상적으로 렌더링됩니다.', () => {
-    render(<${name}>테스트</${name}>);
-    const element = screen.getByText(/테스트/);
-    expect(element).toBeInTheDocument();
-  });
-});`
+      reactTestFileTemplate
     );
 
     console.log(createTag(`${removeCwdPath(reactTestFilePath)}/ 파일 생성`));
@@ -88,11 +92,18 @@ describe('${name} 컴포넌트', () => {
 
     let componentDirEntryPath = resolve(`${location}/index.js`);
 
+    if (!fs.existsSync(componentDirEntryPath)) {
+      fs.writeFileSync(componentDirEntryPath, '');
+      console.log(createTag(`${removeCwdPath(componentDirEntryPath)} 파일 생성`));
+    }
+
     let entryContents = fs.readFileSync(componentDirEntryPath, { encoding: 'utf-8' });
 
-    entryContents = entryContents.trim();
+    if(entryContents !== '') {
+      entryContents = `${entryContents.trim()}\n`;
+    }
 
-    fs.writeFileSync(componentDirEntryPath, `${entryContents}\nexport * from './${name}';`);
+    fs.writeFileSync(componentDirEntryPath, `${entryContents}export * from './${name}';`);
 
     console.log(editTag(`${removeCwdPath(componentDirEntryPath)}/ 파일 수정`));
 
