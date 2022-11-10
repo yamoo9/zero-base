@@ -4,8 +4,17 @@ import { Component } from 'react';
 export class LearnRC extends Component {
   // 라이프 사이클 메서드
   // - constructor
+  // - static getDerivedStateFromProps
+  // - shouldComponentUpdate
   // - render
+  // ---------------------------------------
+  // - getSnapshotBeforeUpdate
+  // ---------------------------------------
+  // - 실제 DOM 렌더링/업데이트 수행
+  // ---------------------------------------
   // - componentDidMount
+  // - componentDidUpdate
+  // - componentWillUnmount
 
   constructor(props) {
     super(props);
@@ -18,13 +27,13 @@ export class LearnRC extends Component {
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
-  // 클래스 필드
-  // 상태, 파생(props로 부터) 상태 선언
+  static getDerivedStateFromProps(props, state) {
+    console.log({ props, state });
 
-  // state = {
-  //   headline: this.props.headline,
-  //   message: 'hello React class component',
-  // };
+    return {
+      mine: true,
+    };
+  }
 
   render() {
     const { headline, message } = this.state;
@@ -51,31 +60,18 @@ export class LearnRC extends Component {
     console.log('updated');
   }
 
+  // 마운트 해제 이전 시점에 1회만 실행
   componentWillUnmount() {
     console.log('un mounted');
   }
 
   handleButtonClick() {
-    // updator 1. new state object
-    // this.setState({
-    //   headline: this.state.headline + '🥲',
-    // });
-
-    // updator 2. function (return new state)
     this.setState(
       ({ headline }) => ({
         headline: headline + '🥲',
       })
       // this.updatedHeadlineCallback
     );
-
-    // console.log('1', this.state);
-
-    this.setState(({ message }) => ({
-      message: message + ' 🅾️',
-    }));
-
-    // console.log('2', this.state);
   }
 
   updatedHeadlineCallback() {
