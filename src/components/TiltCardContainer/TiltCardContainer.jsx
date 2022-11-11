@@ -1,4 +1,6 @@
 import './TiltCardContainer.css';
+
+import axios from 'axios';
 import { Component } from 'react';
 import { TiltCard } from 'components';
 
@@ -6,11 +8,9 @@ import { TiltCard } from 'components';
 
 export class TiltCardContainer extends Component {
   state = {
-    cards: [
-      { id: 'card-vanilla', text: 'Vanilla Tilt Card' },
-      { id: 'card-jquery', text: 'jQuery Tilt Card' },
-      { id: 'card-react', text: 'React Tilt Card' },
-    ],
+    loading: true,
+    error: null,
+    cards: [],
   };
 
   handleRemoveCard = (id) => {
@@ -21,7 +21,15 @@ export class TiltCardContainer extends Component {
   };
 
   render() {
-    const { cards } = this.state;
+    const { loading, error, cards } = this.state;
+
+    if (loading) {
+      return <div role="alert">로딩 중....</div>;
+    }
+
+    if (error) {
+      return <div role="alert">{error.message}</div>;
+    }
 
     return (
       <div className="tiltCardContainer" lang="en">
@@ -42,7 +50,7 @@ export class TiltCardContainer extends Component {
             <li key={card.id}>
               <TiltCard
                 card={card}
-                options={{ 'max-glare': 0.2, 'perspective': 600 }}
+                options={{ 'max-glare': 0.2, perspective: 600 }}
               >
                 {card.text}
               </TiltCard>
@@ -51,5 +59,22 @@ export class TiltCardContainer extends Component {
         </ul>
       </div>
     );
+  }
+
+  componentDidMount() {
+    setTimeout(this.fetchCards.bind(this), 1200);
+  }
+
+  async fetchCards() {
+    try {
+      const {
+        data: { cards },
+      } = await axios.get('/api/v1/tiltcard');
+      this.setState({ cards });
+    } catch (error) {
+      this.setState({ error });
+    } finally {
+      this.setState({ loading: false });
+    }
   }
 }

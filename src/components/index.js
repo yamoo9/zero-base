@@ -6,3 +6,6 @@ export * from './ErrorBoundary';
 export * from './BinaryCalcurator';
 export * from './AboutSideEffects';
 export * from './FormInput';
+
+export * from './TiltCardContainer/TiltCardContainer';
+export * from './TiltCard/TiltCard';

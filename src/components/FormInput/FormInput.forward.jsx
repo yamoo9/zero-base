@@ -3,7 +3,7 @@ import styles from './FormInput.module.css';
 import { A11yHidden } from 'components';
 import classNames from 'classnames';
 
-function _FormInput(
+export const FormInput = React.forwardRef(function FormInput(
   { id, label, isHiddenLabel = false, type = 'input', className, ...restProps },
   ref
 ) {
@@ -19,6 +19,4 @@ function _FormInput(
       <input ref={ref} id={id} type={type} {...restProps} />
     </div>
   );
-}
-
-export const FormInput = React.forwardRef(_FormInput);
+});
