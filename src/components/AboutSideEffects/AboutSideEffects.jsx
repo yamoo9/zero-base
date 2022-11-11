@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutSideEffects.css';
-import { FormInput } from '../FormInput/FormInput';
+import { FormInput } from 'components';
 
 export class AboutSideEffects extends React.Component {
   // React.createRef() : class 컴포넌트만 가능
@@ -24,6 +24,13 @@ export class AboutSideEffects extends React.Component {
 
     return (
       <div className="AboutSideEffects">
+        <button
+          type="button"
+          onClick={() => {
+            this.#formInputRef.current.focus();
+          }}
+          children="print listRef element"
+        />
         <h2>NPM 사용자 정보 : {this.state.query}</h2>
         <ul ref={this.#listRef}>
           {this.state.data.map((item, index) => (
@@ -35,20 +42,13 @@ export class AboutSideEffects extends React.Component {
           ))}
         </ul>
         <FormInput
-          ref={this.#formInputRef}
           id="unique-input-id"
-          label="이메일"
           type="email"
+          label="이메일"
           placeholder="user@company.io"
-          onChange={this.handleChangeInput}
           isHiddenLabel
-        />
-        <button
-          type="button"
-          onClick={() => {
-            console.log(this.#formInputRef);
-          }}
-          children="print listRef element"
+          domRef={this.#formInputRef}
+          onChange={this.handleChangeInput}
         />
       </div>
     );
