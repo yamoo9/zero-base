@@ -57,7 +57,7 @@ export class TiltCard extends React.Component {
       this.handleChangeTilt.bind(this)
     );
 
-    console.log('TiltCard 컴포넌트에 연결된 플러그인 해제');
+    // console.log('TiltCard 컴포넌트에 연결된 플러그인 해제');
   }
 
   render() {

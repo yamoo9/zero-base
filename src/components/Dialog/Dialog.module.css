@@ -6,11 +6,15 @@
   min-width: 400px;
   min-height: 140px;
   border-radius: 6px;
-  padding: 2rem;
+  padding: 2rem 4rem 2rem 2rem;
   background: #fefefe;
   color: #121212;
   translate: -50% -50%;
   box-shadow: 0 6px 10px rgba(0 0 0 / 40%);
+}
+
+.container:focus {
+  box-shadow: 0 0 0 6px #4900d0;
 }
 
 .header * {
