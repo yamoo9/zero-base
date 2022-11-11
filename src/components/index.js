@@ -8,4 +8,7 @@ export * from './AboutSideEffects';
 export * from './FormInput';
 
 export * from './TiltCardContainer/TiltCardContainer';
+export * from './DemoParagraphs/DemoParagraphs';
 export * from './TiltCard/TiltCard';
+export * from './DemoDialog';
+export * from './Dialog';

@@ -1,5 +1,6 @@
 .tiltCardContainer {
   max-width: 1400px;
+  min-height: 600px;
   margin: 0 auto;
   text-align: center;
 }
@@ -31,6 +32,14 @@
   padding-left: 0;
   display: flex;
   flex-flow: column;
+}
+
+.tiltCardContainer svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  font-size: 40px;
 }
 
 @media (min-width: 64em) {
