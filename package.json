@@ -1,5 +1,5 @@
 {
-  "name": "react-stateless-component",
+  "name": "react-props-validation",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
@@ -21,6 +21,7 @@
     "cross-env": "7.0.3",
     "inquirer": "8.2.5",
     "jest-in-case": "1.0.2",
+    "prop-types": "15.8.1",
     "react-app-rewired": "2.2.1",
     "react-scripts": "5.0.1",
     "sass": "1.56.0"

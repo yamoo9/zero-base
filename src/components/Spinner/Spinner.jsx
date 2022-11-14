@@ -1,6 +1,7 @@
 import styles from './Spinner.module.css';
 
 import React from 'react';
+import { oneOf, oneOfType, string, number, bool } from 'prop-types';
 import { getAsset } from 'utils';
 import { A11yHidden } from 'components';
 
@@ -10,16 +11,6 @@ const loadingElements = {
 };
 
 export class Spinner extends React.Component {
-  static defaultProps = {
-    type: 'connect', // 'grow', 'learn', 'connect'*
-    message: '로딩 중...',
-    showMessage: true,
-    timeToDisappear: {
-      start: 1500,
-      end: 2500,
-    },
-  };
-
   render() {
     const { type, message, showMessage } = this.props;
     const spinnerImagePath = getAsset(`spinner/spinner-${type}.gif`);
@@ -66,3 +57,19 @@ export class Spinner extends React.Component {
     }, timeToDisappear.end);
   }
 }
+
+Spinner.defaultProps = {
+  // type: 'connect', // 'grow', 'learn', 'connect'
+  message: '로딩 중...',
+  showMessage: true,
+  timeToDisappear: {
+    start: 1500,
+    end: 2500,
+  },
+};
+
+Spinner.propTypes = {
+  type: oneOf(['grow', 'learn', 'connect']).isRequired,
+  message: oneOfType([string, number]).isRequired,
+  showMessage: bool,
+};

@@ -24,7 +24,16 @@ export class TiltCardContainer extends Component {
     const { loading, error, cards } = this.state;
 
     if (loading) {
-      return <Spinner message="틸트 카드 데이터 로딩 중입니다..." />;
+      return (
+        <Spinner
+          type={'learning'}
+          // showMessage={101}
+          message="틸트 카드 데이터 로딩 중입니다..."
+        />
+        // <Spinner type={false} message="틸트 카드 데이터 로딩 중입니다..." />
+        // return <Spinner message={{ msg: '틸트 카드 데이터 로딩 중입니다...' }} />;
+        // return <Spinner message="틸트 카드 데이터 로딩 중입니다..." />;
+      );
     }
 
     if (error) {
