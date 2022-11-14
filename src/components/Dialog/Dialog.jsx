@@ -3,6 +3,9 @@ import { createPortal } from 'react-dom';
 import styles from './Dialog.module.css';
 import { getTabbableElements } from 'utils';
 
+const { documentElement: htmlElement } = document;
+const reactDomContainer = document.getElementById('root');
+
 export class Dialog extends React.Component {
   #containerRef = React.createRef(null);
 
@@ -34,10 +37,38 @@ export class Dialog extends React.Component {
 
   #tabbableElements = [];
 
+  #bindEscKeyEvents() {
+    const handler = (e) => {
+      if (e.key.toLowerCase().includes('escape')) {
+        console.log('pressed esc key');
+        this.handleClose();
+      }
+    };
+
+    document.addEventListener('keyup', handler);
+
+    // cleanup function
+    return () => document.removeEventListener('keyup', handler);
+  }
+
+  #unbindEscKeyEvents = null;
+
   componentDidMount() {
     this.#containerRef.current.focus();
     this.#tabbableElements = getTabbableElements(this.#containerRef.current);
     this.settingKeyboardTrap();
+
+    htmlElement.style.overflowY = 'hidden';
+    reactDomContainer.setAttribute('aria-hidden', true);
+
+    this.#unbindEscKeyEvents = this.#bindEscKeyEvents();
+  }
+
+  componentWillUnmount() {
+    htmlElement.style.overflowY = 'visible';
+    reactDomContainer.setAttribute('aria-hidden', false);
+
+    this.#unbindEscKeyEvents?.();
   }
 
   settingKeyboardTrap() {
