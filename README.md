@@ -9,3 +9,4 @@
   - [x] 이벤트 구독/취소
 - [x] Portals
 - [x] Dialog 컴포넌트
+- [x] Spinner 컴포넌트

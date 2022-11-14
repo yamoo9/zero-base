@@ -1,8 +1,16 @@
 {
   "location": "src/components",
-  "module": false,
-  "ext": ".jsx",
-  "styleExt": ".css",
-  "testSuffix": "test",
-  "styleModuleClassName": "container"
+  "language": {
+    "type": "javascript",
+    "ext": ".jsx"
+  },
+  "style": {
+    "ext": ".css",
+    "module": false,
+    "moduleClassName": "container"
+  },
+  "test": {
+    "type": "storybook",
+    "suffix": "stories"
+  }
 }

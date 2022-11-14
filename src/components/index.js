@@ -12,3 +12,4 @@ export * from './DemoParagraphs/DemoParagraphs';
 export * from './TiltCard/TiltCard';
 export * from './DemoDialog';
 export * from './Dialog';
+export * from './Spinner';
