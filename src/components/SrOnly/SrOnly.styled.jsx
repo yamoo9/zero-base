@@ -11,4 +11,26 @@ export const SrOnly = styled.span`
   border: 0;
   padding: 0;
   white-space: nowrap;
+
+  caption& {
+    position: static;
+  }
+
+  ${({ $focusable }) => {
+    return $focusable
+      ? /* css */ `
+      &:focus {
+        overflow: initial;
+        clip: auto;
+        clip-path: unset;
+        width: initial;
+        height: initial;
+        margin: initial;
+        border: initial;
+        padding: initial;
+        white-space: initial;
+      }
+    `
+      : null;
+  }}
 `;
