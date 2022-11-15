@@ -1,7 +1,10 @@
-import styles from './Banner.module.css';
-import classNames from 'classnames';
+import styled from 'styled-components/macro';
 import { A11yHidden } from 'components';
 import { getAsset } from 'utils';
+
+/* -------------------------------------------------------------------------- */
+/* component                                                                  */
+/* -------------------------------------------------------------------------- */
 
 export function Banner({
   as: ComponentName,
@@ -14,23 +17,45 @@ export function Banner({
   ...restProps
 }) {
   return (
-    <ComponentName
-      className={classNames(styles.container, className)}
+    <StyledContainer
+      as={ComponentName}
+      className={className}
       style={{
-        backgroundImage: url && `url(${getAsset(url)})`,
         width,
         height,
         ...style,
       }}
       {...restProps}
     >
-      <A11yHidden>{children}</A11yHidden>
-    </ComponentName>
+      <StyledImage alt="" src={getAsset(url)} width={width} height={height} />
+      <A11yHidden as="figcaption">{children}</A11yHidden>
+    </StyledContainer>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/* component props                                                            */
+/* -------------------------------------------------------------------------- */
 
 Banner.defaultProps = {
   as: 'figure',
   width: 374,
   height: 800,
 };
+
+Banner.propTypes = {};
+
+/* -------------------------------------------------------------------------- */
+/* styled components                                                          */
+/* -------------------------------------------------------------------------- */
+
+const StyledContainer = styled.div`
+  margin: 0;
+  background-size: cover;
+`;
+
+const StyledImage = styled.img`
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+`;
