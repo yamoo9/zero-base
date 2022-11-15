@@ -1,8 +1,9 @@
+import styled from 'styled-components/macro';
 import React from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Dialog.module.css';
 import { getTabbableElements } from 'utils';
-import { func, oneOf } from 'prop-types';
+import { func } from 'prop-types';
 
 const { documentElement: htmlElement } = document;
 const reactDomContainer = document.getElementById('root');
@@ -93,9 +94,15 @@ export class Dialog extends React.Component {
   }
 }
 
-Dialog.Header = function DialogHeader({ children }) {
-  return <header className={styles.header}>{children}</header>;
-};
+// Dialog.Header = function DialogHeader({ children }) {
+//   return <header className={styles.header}>{children}</header>;
+// };
+
+Dialog.Header = styled.header`
+  * {
+    margin: 0;
+  }
+`;
 
 Dialog.Header.defaultProps = {
   children: <h2>React 포털로 연 다이얼로그(with 모달)</h2>,
