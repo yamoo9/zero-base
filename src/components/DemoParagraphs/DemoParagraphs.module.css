@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40;
+  width: 640px;
+  margin: 40px auto;
+  line-height: 1.5;
+  font-size: 24px;
+  color: #2f2c33;
+}
