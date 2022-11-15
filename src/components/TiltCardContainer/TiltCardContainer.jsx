@@ -26,7 +26,7 @@ export class TiltCardContainer extends Component {
     if (loading) {
       return (
         <Spinner
-          type={'learning'}
+          type={'learn'}
           // showMessage={101}
           message="틸트 카드 데이터 로딩 중입니다..."
         />

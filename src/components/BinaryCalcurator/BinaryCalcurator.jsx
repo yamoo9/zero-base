@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import styles from './BinaryCalcurator.module.css';
 import { ToggleButton } from 'components';
+import { number } from 'prop-types';
 
 export class BinaryCalcurator extends Component {
   state = {
@@ -46,3 +47,7 @@ export class BinaryCalcurator extends Component {
     return sum;
   }
 }
+
+BinaryCalcurator.propTypes = {
+  numberOfButtons: number.isRequired,
+};

@@ -9,6 +9,8 @@ import VanillaTilt from 'vanilla-tilt'; // class (constructor function)
 // React Tilt   — https://www.npmjs.com/package/react-parallax-tilt
 /* -------------------------------------------------------------------------- */
 
+import { bool, exact, number, string } from 'prop-types';
+
 // Vanilla Tilt 기본 옵션
 const tiltOptions = {
   max: 8,
@@ -18,6 +20,22 @@ const tiltOptions = {
   glare: true,
   'max-glare': 0.25,
 };
+
+/* Types -------------------------------------------------------------------- */
+
+const TiltOptionsType = exact({
+  max: number,
+  speed: number,
+  perspective: number,
+  scale: number,
+  glare: bool,
+  'max-glare': number,
+});
+
+const TiltItemType = exact({
+  id: string,
+  text: string,
+});
 
 export class TiltCard extends React.Component {
   static defaultProps = {
@@ -71,3 +89,8 @@ export class TiltCard extends React.Component {
     );
   }
 }
+
+TiltCard.propTypes = {
+  card: TiltItemType.isRequired,
+  options: TiltOptionsType,
+};

@@ -2,6 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Dialog.module.css';
 import { getTabbableElements } from 'utils';
+import { func, oneOf } from 'prop-types';
 
 const { documentElement: htmlElement } = document;
 const reactDomContainer = document.getElementById('root');
@@ -121,4 +122,9 @@ Dialog.Footer = function DialogFooter({ children, onClose }) {
       {children}
     </footer>
   );
+};
+
+Dialog.propTypes = {
+  onClose: func,
+  // openner: oneOf([null])
 };
