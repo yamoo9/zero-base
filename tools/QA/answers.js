@@ -27,6 +27,7 @@ function createReactComponentDirectory({
     test: {
       type: usingStorybook ? 'storybook' : 'testing library',
       suffix: usingStorybook ? 'stories' : 'test',
+      using: usingTest,
     },
   };
 

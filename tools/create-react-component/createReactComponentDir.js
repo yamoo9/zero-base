@@ -8,7 +8,7 @@ module.exports = function createReactComponentDir({
   location,
   language, // { type, ext }
   style, // { ext, module, moduleClassName }
-  test, // { type, suffix }
+  test, // { type, suffix, usingTest }
 }) {
   // 생성할 디렉토리 구성
   let dirPath = configureComponentDir(location, name);
@@ -26,7 +26,7 @@ module.exports = function createReactComponentDir({
   configureReactStyleFile(dirPath, name, styleFileName, style);
 
   // React 컴포넌트 테스트 파일 구성
-  configureReactTestFile(dirPath, name, test, language);
+  test.usingTest && configureReactTestFile(dirPath, name, test, language);
 
   // 컴포넌트 디렉토리 엔트리 파일 수정
   editComponentDirEntryFile(location, name, language);
@@ -110,7 +110,7 @@ function configureReactStyleFile(dirPath, name, styleFileName, style) {
 
   fs.writeFileSync(
     resolve(reactStyleFilePath),
-    module ? `.${style.moduleClassName} {}` : `.${name} {}`
+    style.module ? `.${style.moduleClassName} {}` : `.${name} {}`
   );
 
   console.log(createTag(`${removeCwdPath(reactStyleFilePath)}/ 파일 생성`));
