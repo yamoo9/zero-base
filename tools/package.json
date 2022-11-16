@@ -1,0 +1,19 @@
+{
+  "name": "@euid/create-react-component",
+  "version": "0.1.0",
+  "description": "스캐폴딩 된 React 컴포넌트 디렉토리를 자동 생성하는 명령어 환경 도구입니다.",
+  "main": "index.js",
+  "scripts": {
+    "create": "node . create",
+    "delete": "node . delete"
+  },
+  "author": {
+    "name": "yamoo9",
+    "email": "yamoo9@euid.dev"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "cli-color": "2.0.3",
+    "inquirer": "8.2.5"
+  }
+}
