@@ -17,5 +17,7 @@
 1. Stateless Component ( [begin](https://github.com/yamoo9/zero-base/tree/stateless-component/begin) | [complete](https://github.com/yamoo9/zero-base/tree/stateless-component/complete) )
 1. Stateful Component ( [begin](https://github.com/yamoo9/zero-base/tree/stateful-components/begin) | [complete](https://github.com/yamoo9/zero-base/tree/stateful-components/complete) )
 1. Side Effects & Portals ( [begin](https://github.com/yamoo9/zero-base/tree/side-effects/begin) | [complete](https://github.com/yamoo9/zero-base/tree/side-effects/complete) )
+1. Props Validation ( [begin](https://github.com/yamoo9/zero-base/tree/props-validation/begin) | [complete](https://github.com/yamoo9/zero-base/tree/props-validation/complete) )
+1. CSS in JS：styled-components ( [begin](https://github.com/yamoo9/zero-base/tree/css-in-js/begin) | [complete](https://github.com/yamoo9/zero-base/tree/css-in-js/complete) )
 
 <!-- 1. Learn TypeScript ( [begin](https://github.com/yamoo9/zero-base/tree/learn-typescript/begin) | [complete](https://github.com/yamoo9/zero-base/tree/learn-typescript/complete) ) -->
