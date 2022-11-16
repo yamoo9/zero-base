@@ -65,9 +65,9 @@
     "editor.defaultFormatter": "vscode.html-language-features",
     "editor.formatOnSave": false
   },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+  "[css][scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.codeActionsOnSave": ["source.fixAll.stylelint"]
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -80,15 +80,6 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.quickSuggestions": {
-      "comments": "on",
-      "other": "on",
-      "strings": "on"
-    }
   },
   "[yaml]": {
     "editor.autoIndent": "advanced",
@@ -115,11 +106,16 @@
   "typescript.suggest.completeFunctionCalls": true,
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.format.enable": false,
-  "typescript.validate.enable": false,
+  "typescript.format.enable": true,
+  "typescript.validate.enable": true,
 
   "path-intellisense.extensionOnImport": true,
   "path-intellisense.mappings": {
     "@": "${workspaceRoot}/src"
-  }
+  },
+
+  "stylelint.enable": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false
 }
