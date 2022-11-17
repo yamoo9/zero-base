@@ -1,15 +1,10 @@
 module.exports = (config) => {
   const fs = require('node:fs');
   const { resolve } = require('node:path');
-  const removeCwdPath = require('./_removeCwdPath');
-  const { deleteTag, editTag } = require('./_tags');
+  const removeCwdPath = require('./removeCwdPath');
+  const { deleteTag, editTag } = require('./cliTags');
 
-  let { name, location } = config;
-
-  if (!name) {
-    console.error('[🚨 오류] --name=컴포넌트_이름 옵션 설정이 필요합니다.');
-    process.exit();
-  }
+  let { name, location, language } = config;
 
   let dirPath = resolve(`${location}/${name}`);
 
@@ -26,7 +21,9 @@ module.exports = (config) => {
     // ----------------------------------------------------------------------------------------
     // 컴포넌트 디렉토리 엔트리 파일 수정
 
-    let componentDirEntryPath = resolve(`${location}/index.js`);
+    let componentDirEntryPath = resolve(
+      `${location}/index.${language.type === 'typescript' ? 'ts' : 'js'}`
+    );
 
     if (fs.existsSync(componentDirEntryPath)) {
       let entryContents = fs.readFileSync(componentDirEntryPath, {

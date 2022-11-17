@@ -1,4 +1,4 @@
-const getUserParams = require('./_getUserParams');
+const getUserParams = require('./getUserParams');
 
 module.exports = function getComponentParams() {
   return Object.fromEntries(
