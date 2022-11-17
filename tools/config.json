@@ -1,0 +1,17 @@
+{
+  "location": "src/components",
+  "language": {
+    "type": "javascript",
+    "ext": ".jsx"
+  },
+  "style": {
+    "ext": ".css",
+    "module": false,
+    "moduleClassName": "container"
+  },
+  "test": {
+    "type": "storybook",
+    "suffix": "stories",
+    "using": false
+  }
+}
