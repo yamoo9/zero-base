@@ -27,12 +27,11 @@ export function EuidCounter({
   );
 }
 EuidCounter.defaultProps = {
-  className: string,
   value: 0,
   step: 1,
 };
-
 EuidCounter.propTypes = {
+  className: string,
   render: func,
 };
 
@@ -47,7 +46,7 @@ EuidCounter.Output = function EuidCounterOutput({
     </output>
   );
 };
-EuidCounter.Output.defaultProps = {
+EuidCounter.Output.propTypes = {
   className: string,
   children: node,
 };
@@ -56,6 +55,7 @@ EuidCounter.Button = function EuidCounterButton({
   label,
   className,
   children,
+  onUpdate,
   ...restProps
 }) {
   return (
@@ -63,6 +63,7 @@ EuidCounter.Button = function EuidCounterButton({
       type="button"
       className={cx(styles.button, className)}
       aria-label={label}
+      onClick={onUpdate}
       {...restProps}
     >
       {children}
@@ -73,4 +74,5 @@ EuidCounter.Button.propTypes = {
   label: string,
   className: string,
   children: node,
+  onUpdate: func,
 };
