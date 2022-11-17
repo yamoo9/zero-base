@@ -1,0 +1,6 @@
+.container {
+  @apply flex justify-center items-center;
+  @apply text-indigo-600 text-3xl font-semibold;
+
+  margin: -20px;
+}

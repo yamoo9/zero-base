@@ -1,10 +1,15 @@
 import styles from './App.module.scss';
-import { ToggleButton } from 'components';
+import { Headline } from 'components';
 
 export default function App() {
   return (
-    <div className={styles.App} lang="en">
-      <ToggleButton onText={1} offText={0} />
+    <div className={styles.App}>
+      <Headline lang="en">Tailwin CSS (Utility First)</Headline>
+      <Headline lang="en">Tailwin CSS (Utility First)</Headline>
+      <Headline lang="en">Tailwin CSS (Utility First)</Headline>
+      <Headline lang="en">Tailwin CSS (Utility First)</Headline>
+      <Headline lang="en">Tailwin CSS (Utility First)</Headline>
+      <Headline lang="en">Tailwin CSS (Utility First)</Headline>
     </div>
   );
 }
