@@ -19,5 +19,10 @@
 1. Side Effects & Portals ( [begin](https://github.com/yamoo9/zero-base/tree/side-effects/begin) | [complete](https://github.com/yamoo9/zero-base/tree/side-effects/complete) )
 1. Props Validation ( [begin](https://github.com/yamoo9/zero-base/tree/props-validation/begin) | [complete](https://github.com/yamoo9/zero-base/tree/props-validation/complete) )
 1. CSS in JS：styled-components ( [begin](https://github.com/yamoo9/zero-base/tree/css-in-js/begin) | [complete](https://github.com/yamoo9/zero-base/tree/css-in-js/complete) )
+1. Utility First：Tailwind CSS ( [begin](https://github.com/yamoo9/zero-base/tree/utility-first/begin) | [complete](https://github.com/yamoo9/zero-base/tree/utility-first/complete) )
+1. Higher-order Component ( [begin](https://github.com/yamoo9/zero-base/tree/react-hoc/begin) | [complete](https://github.com/yamoo9/zero-base/tree/react-hoc/complete) )
+1. Lifting State Up ( [begin](https://github.com/yamoo9/zero-base/tree/lifting-state-up/begin) | [complete](https://github.com/yamoo9/zero-base/tree/lifting-state-up/complete) )
+1. Context API ( [begin](https://github.com/yamoo9/zero-base/tree/context-api/begin) | [complete](https://github.com/yamoo9/zero-base/tree/context-api/complete) )
+1. React Hooks API ( [begin](https://github.com/yamoo9/zero-base/tree/react-hooks/begin) | [complete](https://github.com/yamoo9/zero-base/tree/react-hooks/complete) )
 
 <!-- 1. Learn TypeScript ( [begin](https://github.com/yamoo9/zero-base/tree/learn-typescript/begin) | [complete](https://github.com/yamoo9/zero-base/tree/learn-typescript/complete) ) -->
