@@ -1,7 +1,3 @@
-# 상태 끌어 올리기 (Lifting State Up)
+# 컴포넌트 주도 개발 (Component-driven Development)
 
-컴포넌트 간 상태 공유를 위해 필요한 경우, 상위 컴포넌트로 상태를 끌어 올려 관리합니다.
-
-- Shopping Cart UI
-  - [ ] Counter Component
-  - [ ] Cart Component
+Storybook 도구를 사용해 컴포넌트 주도 개발을 아토믹 설계로 구현합니다.
