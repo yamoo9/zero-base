@@ -14,3 +14,4 @@ export * from './DemoDialog';
 export * from './Dialog';
 export * from './Spinner';
 export * from './SrOnly';
+export * from './DataFetchDemo';

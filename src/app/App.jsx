@@ -1,32 +1,15 @@
 import styled from 'styled-components/macro';
-import { DemoDialog, FormInput } from 'components';
+import { DataFetchDemo } from 'components';
 
 export default function App() {
   return (
     <Container lang="en">
-      <DemoDialog />
-      <form>
-        <FormInput
-          id="user-email"
-          type="email"
-          label="이메일"
-          className="hey"
-          isHiddenLabel
-          placeholder="user@company.io"
-          css={`
-            margin: ${(...args) => {
-              console.log(args);
-              return '20px 10px';
-            }};
-            border: 0;
-            padding: 1em;
-            font-size: 15px;
-            font-weight: bold;
-            line-height: 1.7;
-            color: #fff;
-          `}
-        />
-      </form>
+      <DataFetchDemo endpoint="https://jsonplaceholder.typicode.com/users/1" />
+      <DataFetchDemo endpoint="https://jsonplaceholder.typicode.com/users/2" />
+      <DataFetchDemo endpoint="https://jsonplaceholder.typicode.com/users/3" />
+      <DataFetchDemo endpoint="https://jsonplaceholder.typicode.com/users/4" />
+      <DataFetchDemo endpoint="https://jsonplaceholder.typicode.com/users/5" />
+      <DataFetchDemo endpoint="https://jsonplaceholder.typicode.com/users/6" />
     </Container>
   );
 }
