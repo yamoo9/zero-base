@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
+  "rules": {
+    "declaration-colon-newline-after": "always-multi-line",
+    "property-no-unknown": [
+      true,
+      {
+        "ingnoreProperties": [
+          "content-visibility"
+        ]
+      }
+    ]
+  },
+  "ignoreFiles": [
+    "build/**",
+    "coverage/**",
+    "dist/**",
+    "**/*.js",
+    "**/*.css",
+    "**/*.sass",
+    "**/*.scss",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}
