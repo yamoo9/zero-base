@@ -1,3 +1,4 @@
+import { withDesign } from 'storybook-addon-designs';
 import { css } from 'styled-components/macro';
 
 export const withMaxWidth = (StoryFn) => {
@@ -29,4 +30,4 @@ export const withBackground = (StoryFn) => {
   );
 };
 
-export const globalDecorators = [withBackground, withMaxWidth];
+export const globalDecorators = [withDesign, withBackground, withMaxWidth];
