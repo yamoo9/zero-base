@@ -9,7 +9,7 @@ export function ToggleButton({ onText, offText, on, onToggle, activeClass }) {
       className={classNames('ToggleButton', { [activeClass]: on })}
       onClick={onToggle}
       css={css`
-        color: #292f2f;
+        color: ${on ? '#bbd5d5' : '#292f2f'};
       `}
     >
       {on ? onText : offText}
