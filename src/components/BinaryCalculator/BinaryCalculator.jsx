@@ -19,11 +19,16 @@ export class BinaryCalculator extends Component {
     { numberOfButtons },
     { _oldNumberOfButtons }
   ) {
-    if (typeof numberOfButtons === 'number') {
+    let isNumberType = typeof numberOfButtons === 'number';
+
+    if (isNumberType && !_oldNumberOfButtons) {
       return {
         buttonStates: Array(numberOfButtons).fill(false),
       };
-    } else if (!isEqual(numberOfButtons, _oldNumberOfButtons)) {
+    } else if (
+      !isNumberType &&
+      !isEqual(numberOfButtons, _oldNumberOfButtons)
+    ) {
       return {
         buttonStates: numberOfButtons,
       };
