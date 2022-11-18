@@ -2,7 +2,7 @@
 
 Vite 툴체인으로 구성된 개발 환경에서 Storybook을 사용한 컴포넌트 주도 개발에 대해 학습합니다.
 
-- [ ] Vite 구성
+- [x] Vite 구성
   - [x] eslint
   - [x] prettier
   - [x] htmlhint
@@ -13,9 +13,9 @@ Vite 툴체인으로 구성된 개발 환경에서 Storybook을 사용한 컴포
   - [x] vite-plugin-babel-macros
   - [x] styled-components
   - [x] sass
-  - [ ] open
-  - [ ] host
-  - [ ] server
-  - [ ] resolve
+  - [x] open
+  - [x] host
+  - [x] server
+  - [x] resolve
 - [ ] Storybook 구성
   - [ ] viteFinal

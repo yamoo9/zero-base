@@ -1,6 +1,6 @@
 import './App.scss';
 import { number } from 'prop-types';
-import { BinaryCalculator } from '../components';
+import { BinaryCalculator } from '@/components';
 
 function App({ numberOfButtons }) {
   return (
