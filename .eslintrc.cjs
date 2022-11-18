@@ -13,6 +13,7 @@ module.exports = {
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
     'prettier',
+    'plugin:storybook/recommended',
   ],
   settings: {
     react: {
@@ -37,7 +38,7 @@ module.exports = {
   rules: {
     'react/no-unknown-property': 'off',
     'testing-library/await-async-query': 'error',
-    'testing-library/no-await-sync-query': 'error',
+    'testing-library/no-await-sync-query': 'off',
     'testing-library/no-debugging-utils': 'warn',
     'testing-library/no-dom-import': 'off',
     'jest-dom/prefer-checked': 'error',

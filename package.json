@@ -17,7 +17,9 @@
     "test:w": "vitest",
     "test:ui": "vitest --ui",
     "test:c": "vitest run --coverage",
-    "test:cw": "vitest watch --coverage"
+    "test:cw": "vitest watch --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "classnames": "2.3.2",
@@ -26,6 +28,12 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.0-alpha.50",
+    "@storybook/addon-interactions": "^7.0.0-alpha.50",
+    "@storybook/addon-links": "^7.0.0-alpha.50",
+    "@storybook/react": "^7.0.0-alpha.50",
+    "@storybook/react-vite": "^7.0.0-alpha.50",
+    "@storybook/testing-library": "0.0.13",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
@@ -46,6 +54,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.31.10",
     "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-storybook": "0.6.7",
     "eslint-plugin-testing-library": "5.9.1",
     "husky": "8.0.2",
     "jsdom": "20.0.2",
@@ -58,6 +67,7 @@
     "postcss-syntax": "0.36.2",
     "prettier": "2.7.1",
     "sass": "1.56.1",
+    "storybook": "^7.0.0-alpha.50",
     "styled-components": "5.3.6",
     "stylelint": "14.15.0",
     "stylelint-config-prettier-scss": "0.0.1",

@@ -22,9 +22,9 @@ Vite 툴체인으로 구성된 개발 환경에서 Storybook을 사용한 컴포
 
 ## 컴포넌트 주도 개발 (BinaryCalculator, ToggleButton)
 
-- [ ] ToggleButton 컴포넌트
-  - [ ] defaultProps
-  - [ ] props-types 패키지 설치/적용
+- [x] ToggleButton 컴포넌트
+  - [x] defaultProps
+  - [x] props-types 패키지 설치/적용
 - [ ] BinaryCalculator 컴포넌트
   - [ ] numberOfButtons 타입: number 또는 boolean[]
   - [ ] 이전/현재 Props 비교: getDerivedStateFromProps

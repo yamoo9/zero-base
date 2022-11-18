@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import styles from './BinaryCalculator.module.scss';
 import { ToggleButton } from '../ToggleButton';
+import { number, oneOfType, arrayOf, bool } from 'prop-types';
 
 export class BinaryCalculator extends Component {
   constructor(props) {
@@ -11,9 +12,7 @@ export class BinaryCalculator extends Component {
     };
   }
 
-  static getDerivedStateFromProps(props, state) {
-    const { numberOfButtons } = props;
-
+  static getDerivedStateFromProps({ numberOfButtons }, state) {
     if (state.buttonStates.length !== numberOfButtons) {
       return {
         buttonStates: Array(numberOfButtons).fill(false),
@@ -62,3 +61,8 @@ export class BinaryCalculator extends Component {
     );
   }
 }
+
+BinaryCalculator.propTypes = {
+  /** 버튼의 갯수 */
+  numberOfButtons: oneOfType([number, arrayOf(bool)]).isRequired,
+};
