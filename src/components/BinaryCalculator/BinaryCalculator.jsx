@@ -3,8 +3,16 @@ import styles from './BinaryCalculator.module.scss';
 import { ToggleButton } from '@/components';
 import { number, oneOfType, arrayOf, bool } from 'prop-types';
 import isEqual from 'lodash.isequal';
+import { ThemeContext } from '@/contexts/theme';
 
 export class BinaryCalculator extends Component {
+  static contextType = ThemeContext;
+
+  static propTypes = {
+    /** 버튼의 갯수 */
+    numberOfButtons: oneOfType([number, arrayOf(bool)]).isRequired,
+  };
+
   state = {
     buttonStates: [],
     _oldNumberOfButtons: null,
@@ -18,7 +26,6 @@ export class BinaryCalculator extends Component {
       return {
         buttonStates: Array(numberOfButtons).fill(false),
       };
-      // } else if (numberOfButtons !== _oldNumberOfButtons) {
     } else if (!isEqual(numberOfButtons, _oldNumberOfButtons)) {
       return {
         buttonStates: numberOfButtons,
@@ -29,6 +36,10 @@ export class BinaryCalculator extends Component {
 
   render() {
     const { buttonStates } = this.state;
+
+    const { theme } = this.context;
+
+    console.log(theme);
 
     return (
       <div className={styles.container}>
@@ -72,8 +83,3 @@ export class BinaryCalculator extends Component {
     );
   }
 }
-
-BinaryCalculator.propTypes = {
-  /** 버튼의 갯수 */
-  numberOfButtons: oneOfType([number, arrayOf(bool)]).isRequired,
-};

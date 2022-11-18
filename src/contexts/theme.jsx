@@ -10,9 +10,7 @@ const tokens = {
   },
 };
 
-const lightTheme = {
-  forground: tokens.colors.black,
-  background: tokens.colors.white,
+const commonTheme = {
   space: {
     md: tokens.space.base,
     lg: tokens.space.base * 2,
@@ -20,6 +18,17 @@ const lightTheme = {
   },
 };
 
-export const ThemeContext = React.createContext({
-  theme: lightTheme,
-});
+export const lightTheme = {
+  forground: tokens.colors.black,
+  background: tokens.colors.white,
+  space: commonTheme.space,
+};
+export const darkTheme = {
+  forground: tokens.colors.white,
+  background: tokens.colors.black,
+  space: commonTheme.space,
+};
+
+export const ThemeContext = React.createContext();
+
+ThemeContext.displayName = 'Theme';

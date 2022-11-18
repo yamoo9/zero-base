@@ -1,31 +1,21 @@
 import './ToggleButton.css';
-import { ThemeContext } from '@/contexts/theme';
+import PropTypes from 'prop-types';
 import classNames from 'classNames';
 import { css } from 'styled-components/macro';
-import PropTypes from 'prop-types';
+import { DeepChild } from '../DeepChild/DeepChild';
 
 export function ToggleButton({ onText, offText, on, onToggle, activeClass }) {
-  // 전역에서 제공된 ThemeContext의 상태 데이터를 수요
-
   return (
-    <ThemeContext.Consumer>
-      {/* render props pattern */}
-      {(value) => {
-        console.log(value);
-        return (
-          <button
-            type="button"
-            className={classNames('ToggleButton', { [activeClass]: on })}
-            onClick={onToggle}
-            css={css`
-              color: ${on ? '#bbd5d5' : '#292f2f'};
-            `}
-          >
-            {on ? onText : offText}
-          </button>
-        );
-      }}
-    </ThemeContext.Consumer>
+    <button
+      type="button"
+      className={classNames('ToggleButton', { [activeClass]: on })}
+      onClick={onToggle}
+      css={css`
+        color: ${on ? '#bbd5d5' : '#292f2f'};
+      `}
+    >
+      <DeepChild>{on ? onText : offText}</DeepChild>
+    </button>
   );
 }
 
