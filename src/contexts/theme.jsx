@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, createContext, Component as ReactComponent } from 'react';
 
 const tokens = {
   colors: {
@@ -23,12 +23,31 @@ export const lightTheme = {
   background: tokens.colors.white,
   space: commonTheme.space,
 };
+
 export const darkTheme = {
   forground: tokens.colors.white,
   background: tokens.colors.black,
   space: commonTheme.space,
 };
 
-export const ThemeContext = React.createContext();
-
+const ThemeContext = createContext();
 ThemeContext.displayName = 'Theme';
+
+export const ThemeProvider = ({ ...restProps }) => {
+  const [theme, setTheme] = useState(lightTheme);
+  const themeValue = {
+    theme,
+    changeTheme: setTheme,
+  };
+
+  return <ThemeContext.Provider value={themeValue} {...restProps} />;
+};
+
+export function withTheme(Component) {
+  return class WithThemeHOC extends ReactComponent {
+    static contextType = ThemeContext;
+    render() {
+      return <Component themeValue={this.context} {...this.props} />;
+    }
+  };
+}

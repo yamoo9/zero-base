@@ -1,4 +1,4 @@
-import { withTheme } from '@/hoc/withTheme';
+import { withTheme } from '@/contexts/theme';
 
 export const DeepChild = withTheme(function DeepChild({
   themeValue,

@@ -1,23 +1,15 @@
 import './App.scss';
-import { useState } from 'react';
 import { number } from 'prop-types';
 import { BinaryCalculator } from '@/components';
-import { ThemeContext, lightTheme /* darkTheme */ } from '@/contexts/theme';
+import { ThemeProvider } from '@/contexts/theme';
 
 function App({ numberOfButtons }) {
-  const [theme, setTheme] = useState(lightTheme);
-
   return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        changeTheme: setTheme,
-      }}
-    >
+    <ThemeProvider>
       <div className="App">
         <BinaryCalculator numberOfButtons={numberOfButtons} />
       </div>
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 
