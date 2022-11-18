@@ -1,25 +1,30 @@
 import { Component } from 'react';
 import styles from './BinaryCalculator.module.scss';
-import { ToggleButton } from '../ToggleButton';
+import { ToggleButton } from '@/components';
 import { number, oneOfType, arrayOf, bool } from 'prop-types';
+import isEqual from 'lodash.isequal';
 
 export class BinaryCalculator extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    buttonStates: [],
+    _oldNumberOfButtons: null,
+  };
 
-    this.state = {
-      buttonStates: [],
-    };
-  }
-
-  static getDerivedStateFromProps({ numberOfButtons }, state) {
-    if (state.buttonStates.length !== numberOfButtons) {
+  static getDerivedStateFromProps(
+    { numberOfButtons },
+    { _oldNumberOfButtons }
+  ) {
+    if (typeof numberOfButtons === 'number') {
       return {
         buttonStates: Array(numberOfButtons).fill(false),
       };
-    } else {
-      return null;
+      // } else if (numberOfButtons !== _oldNumberOfButtons) {
+    } else if (!isEqual(numberOfButtons, _oldNumberOfButtons)) {
+      return {
+        buttonStates: numberOfButtons,
+      };
     }
+    return null;
   }
 
   render() {
@@ -41,6 +46,12 @@ export class BinaryCalculator extends Component {
         ))}
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.setState({
+      _oldNumberOfButtons: this.props.numberOfButtons,
+    });
   }
 
   handleToggleButtonState(index) {

@@ -3,6 +3,7 @@ import { BinaryCalculator } from './BinaryCalculator';
 export default {
   title: 'Components/BinaryCalculator',
   component: BinaryCalculator,
+  tags: ['docsPage'],
   args: {
     numberOfButtons: 2,
   },
