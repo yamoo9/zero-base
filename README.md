@@ -25,6 +25,7 @@
 1. Component Driven Development ( [begin](https://github.com/yamoo9/zero-base/tree/react-cdd/begin) | [complete](https://github.com/yamoo9/zero-base/tree/react-cdd/complete) )
 1. Vite + Storybook ( [begin](https://github.com/yamoo9/zero-base/tree/storybook-vite/begin) | [complete](https://github.com/yamoo9/zero-base/tree/storybook-vite/complete) )
 1. Context API ( [begin](https://github.com/yamoo9/zero-base/tree/context-api/begin) | [complete](https://github.com/yamoo9/zero-base/tree/context-api/complete) )
+1. Theme Switch (Vite + Storybook) ( [begin](https://github.com/yamoo9/zero-base/tree/storybook-theme-switch/begin) | [complete](https://github.com/yamoo9/zero-base/tree/storybook-theme-switch/complete) )
 1. React Hooks API ( [begin](https://github.com/yamoo9/zero-base/tree/react-hooks/begin) | [complete](https://github.com/yamoo9/zero-base/tree/react-hooks/complete) )
 1. Learn TypeScript ( [begin](https://github.com/yamoo9/zero-base/tree/learn-typescript/begin) | [complete](https://github.com/yamoo9/zero-base/tree/learn-typescript/complete) )
 1. React + TypeScript ( [begin](https://github.com/yamoo9/zero-base/tree/react-typescript/begin) | [complete](https://github.com/yamoo9/zero-base/tree/react-typescript/complete) )
