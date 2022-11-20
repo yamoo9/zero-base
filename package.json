@@ -1,5 +1,5 @@
 {
-  "name": "zero-base-storybook-theme",
+  "name": "zero-base-storybook-theme-switch",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -17,15 +17,27 @@
     "test:w": "vitest",
     "test:ui": "vitest --ui",
     "test:c": "vitest run --coverage",
-    "test:cw": "vitest watch --coverage"
+    "test:cw": "vitest watch --coverage",
+    "storybook": "STORYBOOK_FIGMA_ACCESS_TOKEN=figd_cBRyYY7Flmr6D4-1BShKoCKS6Nc4Ugd6ZrkHlqGV start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "classnames": "2.3.2",
     "click-to-react-component": "1.0.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "use-dark-mode": "2.3.1"
   },
   "devDependencies": {
+    "@babel/core": "7.20.2",
+    "@storybook/addon-a11y": "6.5.13",
+    "@storybook/addon-actions": "6.5.13",
+    "@storybook/addon-essentials": "6.5.13",
+    "@storybook/addon-interactions": "6.5.13",
+    "@storybook/addon-links": "6.5.13",
+    "@storybook/builder-vite": "0.2.5",
+    "@storybook/react": "6.5.13",
+    "@storybook/testing-library": "0.0.13",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
@@ -36,6 +48,7 @@
     "@vitest/coverage-c8": "0.25.2",
     "@vitest/ui": "0.25.2",
     "autoprefixer": "10.4.13",
+    "babel-loader": "8.3.0",
     "babel-plugin-styled-components": "2.0.7",
     "cross-fetch": "3.1.5",
     "eslint": "8.27.0",
@@ -58,6 +71,7 @@
     "postcss-syntax": "0.36.2",
     "prettier": "2.7.1",
     "sass": "1.56.1",
+    "storybook-addon-designs": "6.3.1",
     "styled-components": "5.3.6",
     "stylelint": "14.15.0",
     "stylelint-config-prettier-scss": "0.0.1",

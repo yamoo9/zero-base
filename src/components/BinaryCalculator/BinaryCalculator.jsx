@@ -1,68 +1,66 @@
 import { Component } from 'react';
-import styles from './BinaryCalculator.module.scss';
-import { ToggleButton } from '../ToggleButton';
-import { PropTypes } from 'prop-types';
+import styled from 'styled-components/macro';
+import { oneOfType, arrayOf, number, bool } from 'prop-types';
+import { ToggleButton } from '@/components';
 
-const NumberOfButtonsType = PropTypes.oneOfType([
-  PropTypes.number,
-  PropTypes.arrayOf(PropTypes.bool),
-]).isRequired;
+/* -------------------------------------------------------------------------- */
+/* Component                                                                  */
+/* -------------------------------------------------------------------------- */
 
 export class BinaryCalculator extends Component {
   static propTypes = {
     /** 렌더링 할 버튼 갯수 */
-    numberOfButtons: NumberOfButtonsType,
+    numberOfButtons: oneOfType([number, arrayOf(bool)]).isRequired,
   };
 
   state = {
     buttonStates: [],
-    _oldNumberOfButtons: null,
   };
-
-  static getDerivedStateFromProps(
-    { numberOfButtons },
-    { _oldNumberOfButtons }
-  ) {
-    let isNumberType = typeof numberOfButtons === 'number';
-
-    if (isNumberType && !_oldNumberOfButtons) {
-      return {
-        buttonStates: Array(numberOfButtons).fill(false),
-      };
-    } else if (!isNumberType && numberOfButtons !== _oldNumberOfButtons) {
-      return {
-        buttonStates: numberOfButtons,
-      };
-    } else {
-      return null;
-    }
-  }
 
   render() {
     const { buttonStates } = this.state;
 
     return (
-      <div className={styles.container}>
-        <h2 className={styles.heading}>
-          계산된 바이너리 값: {this.calcurateBinarySum()}
-        </h2>
-        {buttonStates.map((buttonState, index) => (
-          <ToggleButton
-            key={index}
-            onText={1}
-            offText={0}
-            on={buttonState}
-            onToggle={this.handleToggleButtonState.bind(this, index)}
-          />
-        ))}
-      </div>
+      <Container>
+        <Heading>계산된 바이너리 값: {this.calcurateBinarySum()}</Heading>
+        <ButtonGroup>
+          {buttonStates.map((buttonState, index) => (
+            <ToggleButton
+              key={index}
+              onText={1}
+              offText={0}
+              on={buttonState}
+              onToggle={this.handleToggleButtonState.bind(this, index)}
+            />
+          ))}
+        </ButtonGroup>
+      </Container>
     );
   }
 
   componentDidMount() {
-    this.setState({
-      _oldNumberOfButtons: this.props.numberOfButtons,
-    });
+    this.#updateButtonStates();
+  }
+
+  componentDidUpdate({ numberOfButtons }) {
+    if (numberOfButtons !== this.props.numberOfButtons) {
+      this.#updateButtonStates();
+    }
+  }
+
+  #updateButtonStates() {
+    let { numberOfButtons } = this.props;
+    let isNumberType = typeof numberOfButtons === 'number';
+
+    if (isNumberType) {
+      this.setState({
+        buttonStates: Array(numberOfButtons).fill(false),
+      });
+    } else {
+      this.setState({
+        buttonStates: numberOfButtons,
+      });
+    }
   }
 
   handleToggleButtonState(index) {
@@ -83,3 +81,25 @@ export class BinaryCalculator extends Component {
     );
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* Styled Components                                                          */
+/* -------------------------------------------------------------------------- */
+
+const Container = styled.div`
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 12px;
+`;
+
+const Heading = styled.h2`
+  margin: 0;
+  color: ${({ theme: { color } }) => color.primary[500]};
+`;
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 2px;
+`;

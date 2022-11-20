@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import macrosPlugin from 'vite-plugin-babel-macros';
 
+/** @type {import('vite').UserConfig} */
 export default defineConfig({
   server: {
     port: 3000,
