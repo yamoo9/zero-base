@@ -1,20 +1,16 @@
-import './App.scss';
-import { number } from 'prop-types';
-import { BinaryCalculator } from '@/components';
-import { ThemeProvider } from '@/contexts/theme';
+import styled from 'styled-components';
+import { HeaderBar } from '@/components';
 
-function App({ numberOfButtons }) {
+function App() {
   return (
-    <ThemeProvider>
-      <div className="App">
-        <BinaryCalculator numberOfButtons={numberOfButtons} />
-      </div>
-    </ThemeProvider>
+    <Container>
+      <HeaderBar />
+    </Container>
   );
 }
 
-App.propTypes = {
-  numberOfButtons: number.isRequired,
-};
-
 export default App;
+
+const Container = styled.div`
+  width: 100vw;
+`;

@@ -1,13 +1,11 @@
 import { globalDecorators } from './decorators';
-import { themes } from '@storybook/theming';
 
 export const parameters = {
-  docs: {
-    theme: themes.light,
-  },
+  layout: 'fullscreen',
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     expanded: true,
+    hideNoControlsWarning: true,
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,

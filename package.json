@@ -1,5 +1,5 @@
 {
-  "name": "zero-base",
+  "name": "zero-base-react-context-api",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -75,7 +75,6 @@
     "prettier": "2.7.1",
     "sass": "1.56.1",
     "storybook": "^7.0.0-alpha.50",
-    "storybook-addon-designs": "6.3.1",
     "styled-components": "5.3.6",
     "stylelint": "14.15.0",
     "stylelint-config-prettier-scss": "0.0.1",

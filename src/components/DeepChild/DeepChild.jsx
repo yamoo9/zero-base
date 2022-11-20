@@ -5,5 +5,5 @@ export const DeepChild = withTheme(function DeepChild({
   themeValue,
   ...restProps
 }) {
-  return <div className="deep-child" {...restProps} />;
+  return <span className="deep-child" {...restProps} />;
 });
