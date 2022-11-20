@@ -23,6 +23,16 @@ export default {
   argTypes: {
     numberOfButtons: {
       description: '렌더링 할 버튼 갯수',
+      type: {
+        required: true,
+      },
+
+      table: {
+        type: {
+          summary: 'number | boolean[]',
+          detail: '숫자 또는 불리언 배열',
+        },
+      },
     },
   },
 };
