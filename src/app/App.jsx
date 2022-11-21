@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 import { HeaderBar } from '@/components';
 import { ThemeProvider } from '@/contexts/theme';
+import { AuthProvider } from '@/contexts/auth';
 
 function App() {
   return (
-    <ThemeProvider>
-      <Container>
-        <HeaderBar />
-      </Container>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <Container>
+          <HeaderBar />
+        </Container>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

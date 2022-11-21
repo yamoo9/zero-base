@@ -1,10 +1,30 @@
-import { createContext } from 'react';
+import { Component as ReactComponent, createContext, useState } from 'react';
 
-// create AuthContext
-console.log(createContext);
+const AuthContext = createContext();
+AuthContext.displayName = 'Auth';
 
-// AuthContext.Provider Wrapper
+export const AuthProvider = (props) => {
+  const [user, setUser] = useState(null);
 
-// - [ ] AuthContext.Consumer (render props)
-// - [ ] withAuth : Higher-order Component (hooks → class component state)
-// - [ ] useAuth : Custom Hook (using hooks)
+  const authValue = {
+    authUser: user,
+    isAuth: !!user,
+    login(userInfo) {
+      setUser(userInfo);
+    },
+    logout() {
+      setUser(null);
+    },
+  };
+
+  return <AuthContext.Provider value={authValue} {...props} />;
+};
+
+export const withAuth = (Component) => {
+  return class WithAuthHOC extends ReactComponent {
+    static contextType = AuthContext;
+    render() {
+      return <Component authValue={this.context} {...this.props} />;
+    }
+  };
+};

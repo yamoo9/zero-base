@@ -1,44 +1,43 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { HomeLink, SignInOutButton, Avatar } from '@/components';
 import { withTheme } from '@/contexts/theme';
+import { withAuth } from '@/contexts/auth';
 
 /* -------------------------------------------------------------------------- */
 /* Component                                                                  */
 /* -------------------------------------------------------------------------- */
 
-export const HeaderBar = withTheme(function HeaderBar({ themeValue }) {
-  const [avatar, setAvatar] = useState(null);
+const authorizedAvatar = {
+  name: 'Turning Red',
+  email: 'turning-red@disney.pixar',
+  photo: 'https://bit.ly/3EneVgU',
+  level: 9,
+};
 
-  const login = () =>
-    setAvatar({
-      name: 'Turning Red',
-      email: 'turning-red@disney.pixar',
-      photo: 'https://bit.ly/3EneVgU',
-      level: 9,
-    });
+export const HeaderBar = withAuth(
+  withTheme(function HeaderBar({ themeValue, authValue }) {
+    const { isAuth: isLogin, authUser: avatar, login, logout } = authValue;
+    const signIn = () => login(authorizedAvatar);
+    const signOut = () => logout();
 
-  const logout = () => setAvatar(null);
-
-  let isLogin = !!avatar;
-
-  return (
-    <Header>
-      <HomeLink color="#fff" />
-      <Wrapper>
-        {isLogin && <Avatar src={avatar.photo} alt={avatar.name} size={32} />}
-        <SignInOutButton
-          color="#fff"
-          isLogin={isLogin}
-          onClick={isLogin ? logout : login}
-        />
-        <ThemeToggler lang="en" onClick={themeValue.toggle}>
-          {themeValue.name.includes('light') ? 'dark' : 'light'} Mode
-        </ThemeToggler>
-      </Wrapper>
-    </Header>
-  );
-});
+    return (
+      <Header>
+        <HomeLink color="#fff" />
+        <Wrapper>
+          {isLogin && <Avatar src={avatar.photo} alt={avatar.name} size={32} />}
+          <SignInOutButton
+            color="#fff"
+            isLogin={isLogin}
+            onClick={isLogin ? signOut : signIn}
+          />
+          <ThemeToggler lang="en" onClick={themeValue.toggle}>
+            {themeValue.name.includes('light') ? 'dark' : 'light'} Mode
+          </ThemeToggler>
+        </Wrapper>
+      </Header>
+    );
+  })
+);
 
 /* -------------------------------------------------------------------------- */
 /* Styled Components                                                          */
