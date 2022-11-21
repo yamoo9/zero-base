@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { number, string } from 'prop-types';
 
-export const HomeLink = styled(function ({ className, size, ...restProps }) {
+export const HomeLink = styled(function HomeLink({ className, size, ...restProps }) {
   return (
     <h1 className={className} {...restProps}>
       <a

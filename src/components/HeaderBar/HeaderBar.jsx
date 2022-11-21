@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { HomeLink, SignInOutButton, Avatar } from '@/components';
+import { withTheme } from '@/contexts/theme';
 
 /* -------------------------------------------------------------------------- */
 /* Component                                                                  */
 /* -------------------------------------------------------------------------- */
 
-export function HeaderBar() {
+export const HeaderBar = withTheme(function HeaderBar({ themeValue }) {
   const [avatar, setAvatar] = useState(null);
 
   const login = () =>
@@ -31,10 +32,13 @@ export function HeaderBar() {
           isLogin={isLogin}
           onClick={isLogin ? logout : login}
         />
+        <ThemeToggler lang="en" onClick={themeValue.toggle}>
+          {themeValue.name.includes('light') ? 'dark' : 'light'} Mode
+        </ThemeToggler>
       </Wrapper>
     </Header>
   );
-}
+});
 
 /* -------------------------------------------------------------------------- */
 /* Styled Components                                                          */
@@ -52,4 +56,10 @@ const Wrapper = styled.span`
   display: flex;
   gap: 12px;
   align-items: center;
+`;
+
+const ThemeToggler = styled.button.attrs(() => ({
+  type: 'button',
+}))`
+  cursor: pointer;
 `;

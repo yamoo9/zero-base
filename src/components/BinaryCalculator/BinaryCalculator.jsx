@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import styles from './BinaryCalculator.module.scss';
 import { ToggleButton } from '@/components';
 import { number, oneOfType, arrayOf, bool } from 'prop-types';
 import isEqual from 'lodash.isequal';
@@ -40,10 +39,8 @@ export class BinaryCalculator extends Component {
     const { buttonStates } = this.state;
 
     return (
-      <div className={styles.container}>
-        <h2 className={styles.heading}>
-          계산된 바이너리 값: {this.calcurateBinarySum()}
-        </h2>
+      <div>
+        <h2>계산된 바이너리 값: {this.calcurateBinarySum()}</h2>
         {buttonStates.map((buttonState, index) => (
           <ToggleButton
             key={index}
