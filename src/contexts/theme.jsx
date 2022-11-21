@@ -34,10 +34,19 @@ const ThemeContext = createContext();
 ThemeContext.displayName = 'Theme';
 
 export const ThemeProvider = ({ ...restProps }) => {
-  const [theme, setTheme] = useState(lightTheme);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const currentTheme = isDarkMode ? darkTheme : lightTheme;
+
+  const enableDarkMode = () => setIsDarkMode(true);
+  const disableDarkMode = () => setIsDarkMode(false);
+  const toggleDarkMode = () => setIsDarkMode(isDarkMode ? false : true);
+
   const themeValue = {
-    theme,
-    changeTheme: setTheme,
+    currentTheme,
+    name: isDarkMode ? 'dark' : 'light',
+    enable: enableDarkMode,
+    disable: disableDarkMode,
+    toggle: toggleDarkMode,
   };
 
   return <ThemeContext.Provider value={themeValue} {...restProps} />;
