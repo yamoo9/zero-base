@@ -2,15 +2,27 @@ import useDarkMode from 'use-dark-mode';
 import styled, { css, ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '@/styles/themes';
 
-import { BinaryCalculator } from '@/components';
+// import { BinaryCalculator } from '@/components';
 import { GlobalStyles } from '@/styles/GlobalStyles';
+import { useFetch } from '@/hooks/useFetch';
+import { useMouse } from '@/hooks/useMouse';
 
 /* -------------------------------------------------------------------------- */
 /* Component                                                                  */
 /* -------------------------------------------------------------------------- */
 
 function App() {
+  const mouse = useMouse();
+  console.log(mouse);
+
   const { value, toggle } = useDarkMode(false);
+
+  const state1 = useFetch('https://jsonplaceholder.typicode.com/users/2');
+
+  const state2 = useFetch('https://jsonplaceholder.typicode.com/users/5');
+
+  console.log({ state1, state2 });
+
   const theme = value ? darkTheme : lightTheme;
 
   return (
@@ -20,7 +32,7 @@ function App() {
         <ThemeToggleButton onClick={toggle}>
           {value ? '☾' : '☀'}
         </ThemeToggleButton>
-        <BinaryCalculator numberOfButtons={6} />
+        {/* <BinaryCalculator numberOfButtons={6} /> */}
       </ThemeProvider>
     </Container>
   );

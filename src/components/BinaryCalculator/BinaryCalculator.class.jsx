@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { Component } from 'react';
 import styled from 'styled-components/macro';
 import { oneOfType, arrayOf, number, bool } from 'prop-types';
 import { ToggleButton } from '@/components';
@@ -7,7 +7,7 @@ import { ToggleButton } from '@/components';
 /* Component                                                                  */
 /* -------------------------------------------------------------------------- */
 
-export class _BinaryCalculator extends Component {
+export class BinaryCalculator extends Component {
   static propTypes = {
     /** 렌더링 할 버튼 갯수 */
     numberOfButtons: oneOfType([number, arrayOf(bool)]).isRequired,
@@ -81,32 +81,6 @@ export class _BinaryCalculator extends Component {
     );
   }
 }
-
-export function BinaryCalculator() {
-  const [buttonStates] = useState([]);
-
-  return (
-    <Container>
-      <Heading>계산된 바이너리 값: {this.calcurateBinarySum()}</Heading>
-      <ButtonGroup>
-        {buttonStates.map((buttonState, index) => (
-          <ToggleButton
-            key={index}
-            onText={1}
-            offText={0}
-            on={buttonState}
-            onToggle={this.handleToggleButtonState.bind(this, index)}
-          />
-        ))}
-      </ButtonGroup>
-    </Container>
-  );
-}
-
-BinaryCalculator.propTypes = {
-  /** 렌더링 할 버튼 갯수 */
-  numberOfButtons: oneOfType([number, arrayOf(bool)]).isRequired,
-};
 
 /* -------------------------------------------------------------------------- */
 /* Styled Components                                                          */
