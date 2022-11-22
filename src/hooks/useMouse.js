@@ -7,12 +7,10 @@ export function useMouse() {
   });
 
   useEffect(() => {
-    function update(event) {
-      setMouse({ x: event.pageX, y: event.pageY });
-    }
+    const update = (e) => setMouse({ x: e.pageX, y: e.pageY });
     window.addEventListener('mousemove', update);
     return () => window.removeEventListener('mousemove', update);
   });
 
-  return { ...mouse };
+  return mouse;
 }

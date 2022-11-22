@@ -6,11 +6,6 @@ export const GlobalStyles = createGlobalStyle(
     return css`
       ${resetCSS}
 
-      * {
-        transition: all 250ms ease-in;
-        transition-property: background, color, border;
-      }
-
       :root {
         font-synthesis: none;
         text-rendering: optimizeLegibility;

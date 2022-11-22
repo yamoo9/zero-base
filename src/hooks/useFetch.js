@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { useState, useEffect } from 'react';
 
 export function useFetch(endpoint) {
@@ -11,7 +13,6 @@ export function useFetch(endpoint) {
       .then((json) => setData(json))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { loading, data, error };
