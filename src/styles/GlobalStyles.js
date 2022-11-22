@@ -44,7 +44,8 @@ export const GlobalStyles = createGlobalStyle(
         font-size: 1em;
         font-weight: ${typography.fontWeight.medium};
         font-family: inherit;
-        background-color: #1a1a1a;
+        background-color: ${color.forground};
+        color: ${color.background};
         cursor: pointer;
         transition: border-color 0.25s;
         &:hover {
