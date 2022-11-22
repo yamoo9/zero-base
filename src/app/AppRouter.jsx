@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+import { AuthProvider } from '@/contexts/auth';
+
 import UseStatePage from '@/pages/1-use-state';
 import UseEffectPage from '@/pages/2-use-effect';
 import UseLayoutEffectPage from '@/pages/3-use-layout-effect';
@@ -17,7 +19,7 @@ import UseDeferredValuePage from '@/pages/12-use-deferred-value';
 
 export default function AppRouter() {
   return (
-    <>
+    <AuthProvider>
       {/* <UseStatePage /> */}
       {/* <UseEffectPage /> */}
       {/* <UseLayoutEffectPage /> */}
@@ -30,6 +32,6 @@ export default function AppRouter() {
       {/* <UseIdPage /> */}
       {/* <UseTransitionPage /> */}
       {/* <UseDeferredValuePage /> */}
-    </>
+    </AuthProvider>
   );
 }

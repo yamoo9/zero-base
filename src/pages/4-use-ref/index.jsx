@@ -6,6 +6,7 @@ import { LearnHook } from './components/LearnHook';
 
 export default function Page() {
   const [count, setCount] = useState(101);
+
   return (
     <>
       <Container.Headline lang="en">useRef Hook</Container.Headline>

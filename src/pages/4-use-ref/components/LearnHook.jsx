@@ -1,9 +1,14 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { useAuth } from '@/contexts/auth';
 
 /* -------------------------------------------------------------------------- */
 
 export function LearnHook(props) {
+  const authInfo = useAuth();
+
+  console.log(authInfo);
+
   // 이전 props와 현재 props를 비교할 목적으로
   // useRef 훅을 사용할 수 있다.
   const prevPropsRef = useRef({});
