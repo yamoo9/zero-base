@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { Component, useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { oneOfType, arrayOf, number, bool } from 'prop-types';
 import { ToggleButton } from '@/components';
@@ -82,12 +82,38 @@ export class _BinaryCalculator extends Component {
   }
 }
 
-export function BinaryCalculator() {
-  const [buttonStates] = useState([]);
+export function BinaryCalculator({ numberOfButtons }) {
+  const [buttonStates, setButtonStates] = useState([]);
+
+  useEffect(() => {
+    console.log('changed `numberOfButtons`');
+    let isNumberType = typeof numberOfButtons === 'number';
+    if (isNumberType) {
+      setButtonStates(Array(numberOfButtons).fill(false));
+    } else {
+      setButtonStates(numberOfButtons);
+    }
+  }, [numberOfButtons]);
+
+  const handleToggleButtonState = (index) => {
+    setButtonStates((prevButtonState) =>
+      prevButtonState.map((buttonState, i) =>
+        index === i ? !buttonState : buttonState
+      )
+    );
+  };
+
+  const calcurateBinarySum = () => {
+    return buttonStates.reduce(
+      (sum, buttonState, index) =>
+        sum + (buttonState ? 1 : 0) * 2 ** (buttonStates.length - index - 1),
+      0
+    );
+  };
 
   return (
     <Container>
-      <Heading>계산된 바이너리 값: {this.calcurateBinarySum()}</Heading>
+      <Heading>계산된 바이너리 값: {calcurateBinarySum()}</Heading>
       <ButtonGroup>
         {buttonStates.map((buttonState, index) => (
           <ToggleButton
@@ -95,7 +121,7 @@ export function BinaryCalculator() {
             onText={1}
             offText={0}
             on={buttonState}
-            onToggle={this.handleToggleButtonState.bind(this, index)}
+            onToggle={() => handleToggleButtonState(index)}
           />
         ))}
       </ButtonGroup>
