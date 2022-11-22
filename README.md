@@ -1,3 +1,3 @@
-# Storybook 테마 스위치
+# React 훅(Hooks)
 
-Storybook 테마 스위치에 대해 학습합니다.
+React 훅에 대해 학습합니다.
