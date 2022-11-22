@@ -9,8 +9,8 @@ export default function Page() {
   return (
     <>
       <Container.Headline lang="en">usDeferredValue Hook</Container.Headline>
-      <LearnHook total={400} />
-      {/* <UsingDeferredValueHook total={400} /> */}
+      {/* <LearnHook total={10000} /> */}
+      <UsingDeferredValueHook total={1000} />
     </>
   );
 }

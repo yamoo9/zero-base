@@ -25,13 +25,13 @@ export default function AppRouter() {
       {/* <UseLayoutEffectPage /> */}
       {/* <UseRefPage /> */}
       {/* <UseContextPage /> */}
-      <UseCallbackPage />
-      <UseMemoPage />
+      {/* <UseCallbackPage /> */}
+      {/* <UseMemoPage /> */}
       {/* <UseReducerPage /> */}
       {/* <UseImperativeHandlePage /> */}
       {/* <UseIdPage /> */}
       {/* <UseTransitionPage /> */}
-      {/* <UseDeferredValuePage /> */}
+      <UseDeferredValuePage />
     </AuthProvider>
   );
 }

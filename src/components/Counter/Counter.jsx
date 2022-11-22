@@ -1,32 +1,23 @@
-import { memo, useState, useCallback, useMemo } from 'react';
+import { memo, useReducer } from 'react';
 import { number, func } from 'prop-types';
+import {
+  counterReducer,
+  initCountVaue,
+  incrementCount,
+  decrementCount,
+} from './counterReducer';
 
-/*
-  Counter
-    [count <- props { count, step, min, max, onUpdate }]
-    - [x] Counter.Button {onDecrement}
-    - [o] Counter.Display {count}
-    - [x] Counter.Button {onIncrement}
-*/
+export function Counter({ step }) {
+  const [state, dispatch] = useReducer(counterReducer, initCountVaue);
 
-export function Counter({ count: initialCount, step }) {
-  const [count, setCount] = useState(initialCount);
+  const handleIncrement = () => dispatch(incrementCount(step));
 
-  // useMemo(() => fn, deps)
-  const handleIncrement = useMemo(
-    () => () => setCount((prevCount) => prevCount + step),
-    [step]
-  );
-
-  // useCallback(fn, deps)
-  const handleDecrement = useCallback(() => {
-    setCount((prevCount) => prevCount - step);
-  }, [step]);
+  const handleDecrement = () => dispatch(decrementCount(-1 * step));
 
   return (
     <div>
       <Counter.Button onClick={handleDecrement}>-</Counter.Button>
-      <Counter.Display>{count}</Counter.Display>
+      <Counter.Display>{state}</Counter.Display>
       <Counter.Button onClick={handleIncrement}>+</Counter.Button>
     </div>
   );

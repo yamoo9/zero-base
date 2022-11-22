@@ -9,8 +9,8 @@ export default function Page() {
   return (
     <>
       <Container.Headline lang="en">useTransition Hook</Container.Headline>
-      <LearnHook total={400} />
-      {/* <UsingTransitionHook total={400} /> */}
+      {/* <LearnHook total={4000} /> */}
+      <UsingTransitionHook total={4000} />
     </>
   );
 }

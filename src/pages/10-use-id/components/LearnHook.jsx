@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { string, oneOf } from 'prop-types';
 import styled from 'styled-components';
 
@@ -6,14 +7,8 @@ import styled from 'styled-components';
 export function LearnHook() {
   return (
     <Container>
+      <FormInput type="email" label="이메일" guide="user@company.io" />
       <FormInput
-        id="email"
-        type="email"
-        label="이메일"
-        guide="user@company.io"
-      />
-      <FormInput
-        id="password"
         type="password"
         label="비밀번호"
         guide="영문, 숫자 조합 6자 이상 입력"
@@ -24,7 +19,9 @@ export function LearnHook() {
 
 /* -------------------------------------------------------------------------- */
 
-function FormInput({ id, label, type, guide, ...restProps }) {
+function FormInput({ label, type, guide, ...restProps }) {
+  const id = useId();
+
   let guideId = `${id}-guide`;
   return (
     <div className="FormInput">
@@ -45,7 +42,6 @@ function FormInput({ id, label, type, guide, ...restProps }) {
 }
 
 FormInput.propTypes = {
-  id: string.isRequired,
   label: string.isRequired,
   type: oneOf(['text', 'search', 'email', 'number', 'password']),
   guide: string,
