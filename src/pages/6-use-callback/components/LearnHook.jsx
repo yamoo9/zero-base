@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import { Counter } from '@/components';
 
 /* -------------------------------------------------------------------------- */
 
 export function LearnHook() {
-  return <Container>LearnHook Contents</Container>;
+  return (
+    <Container>
+      <Counter count={10} step={2} />
+    </Container>
+  );
 }
 
 /* -------------------------------------------------------------------------- */

@@ -23,10 +23,10 @@ export default function AppRouter() {
       {/* <UseStatePage /> */}
       {/* <UseEffectPage /> */}
       {/* <UseLayoutEffectPage /> */}
-      <UseRefPage />
+      {/* <UseRefPage /> */}
       {/* <UseContextPage /> */}
-      {/* <UseCallbackPage /> */}
-      {/* <UseMemoPage /> */}
+      <UseCallbackPage />
+      <UseMemoPage />
       {/* <UseReducerPage /> */}
       {/* <UseImperativeHandlePage /> */}
       {/* <UseIdPage /> */}

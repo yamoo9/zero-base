@@ -6,16 +6,20 @@ const AuthContext = React.createContext();
 export const AuthProvider = (props) => {
   const [auth, setAuth] = React.useState(null);
 
-  const authValue = {
-    isAuth: !!auth,
-    currentUser: auth,
-    login(userInfo) {
-      setAuth(userInfo);
-    },
-    logout() {
-      setAuth(null);
-    },
-  };
+  // 인증 정보 값을 기억할 목적으로 useMemo 훅을 사용
+  const authValue = React.useMemo(
+    () => ({
+      isAuth: !!auth,
+      currentUser: auth,
+      login(userInfo) {
+        setAuth(userInfo);
+      },
+      logout() {
+        setAuth(null);
+      },
+    }),
+    [auth]
+  );
 
   return <AuthContext.Provider value={authValue} {...props} />;
 };

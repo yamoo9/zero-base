@@ -9,3 +9,4 @@ export * from './ThemeToggler';
 
 export * from './BinaryCalculator';
 export * from './ToggleButton';
+export * from './Counter';
