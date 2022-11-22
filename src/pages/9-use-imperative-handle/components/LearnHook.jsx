@@ -68,10 +68,14 @@ const Child = forwardRef(function Child(props, ref) {
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
   }, []);
 
-  useImperativeHandle(ref, () => ({
-    scrollTop,
-    scrollBottom,
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      scrollTop,
+      scrollBottom,
+    }),
+    [scrollBottom, scrollTop]
+  );
 
   return (
     <div

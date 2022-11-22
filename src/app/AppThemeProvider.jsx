@@ -1,5 +1,5 @@
 import { node } from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components/macro';
 import { GlobalStyles } from '@/styles/GlobalStyles';
 import { ThemeToggler } from '@/components';
 import { useDarkTheme } from '@/hooks';

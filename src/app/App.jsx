@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
+
 import AppThemeProvider from '@/app/AppThemeProvider';
+import { string } from 'prop-types';
 import AppRouter from '@/app/AppRouter';
 import { Layout } from '@/components';
 
@@ -8,8 +11,8 @@ export default function App() {
   return (
     <AppThemeProvider>
       <Layout
+        sidebar={<SideBar title="React 훅 학습 목차" />}
         // sidebarPosition="right"
-        sidebar={<SideBar />}
       >
         <AppRouter />
       </Layout>
@@ -19,9 +22,9 @@ export default function App() {
 
 /* -------------------------------------------------------------------------- */
 
-function SideBar() {
+function SideBar({ title }) {
   return (
-    <nav>
+    <nav aria-label={title}>
       <ul>
         <li>
           <a href="/use-state">useState</a>
@@ -51,3 +54,7 @@ function SideBar() {
     </nav>
   );
 }
+
+SideBar.propTypes = {
+  title: string.isRequired,
+};
