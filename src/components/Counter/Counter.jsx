@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { memo, useState, useCallback, useMemo } from 'react';
 import { number, func } from 'prop-types';
 
 /*
@@ -23,22 +23,11 @@ export function Counter({ count: initialCount, step }) {
     setCount((prevCount) => prevCount - step);
   }, [step]);
 
-  // memoized Components
-  const DecButton = useMemo(
-    () => <Counter.Button onClick={handleDecrement}>-</Counter.Button>,
-    [handleDecrement]
-  );
-
-  const IncButton = useMemo(
-    () => <Counter.Button onClick={handleIncrement}>+</Counter.Button>,
-    [handleIncrement]
-  );
-
   return (
     <div>
-      {DecButton}
+      <Counter.Button onClick={handleDecrement}>-</Counter.Button>
       <Counter.Display>{count}</Counter.Display>
-      {IncButton}
+      <Counter.Button onClick={handleIncrement}>+</Counter.Button>
     </div>
   );
 }
@@ -60,10 +49,10 @@ Counter.propTypes = {
 
 /* -------------------------------------------------------------------------- */
 
-Counter.Button = function CounterButton(props) {
+Counter.Button = memo(function CounterButton(props) {
   return <button type="button" {...props} />;
-};
+});
 
-Counter.Display = function CounterDisplay(props) {
+Counter.Display = memo(function CounterDisplay(props) {
   return <output {...props} />;
-};
+});
